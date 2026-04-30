@@ -2,6 +2,7 @@ import express from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { User } from "../../Models/index.js";
+import { verifyToken } from "../../Middleware/auth.js";
 
 
 
@@ -70,6 +71,7 @@ router.post("/login", async (req, res) => {
     const currentUser = {
       id: user._id,
       username: user.username,
+      role: user.role,
       isSeller: user.role === "freelancer",
       isVerified:user.verified
     };
@@ -84,6 +86,29 @@ router.post("/login", async (req, res) => {
     console.error(err);
     res.status(500).json({ message: "Internal Server Error!" });
   }
+});
+
+router.get("/me", verifyToken, async (req, res) => {
+  res.status(200).json({
+    currentUser: {
+      id: req.user._id,
+      username: req.user.username,
+      email: req.user.email,
+      role: req.user.role,
+      isSeller: req.user.role === "freelancer",
+      isVerified: req.user.verified,
+    },
+  });
+});
+
+router.post("/logout", (req, res) => {
+  res.clearCookie("access_token", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+  });
+
+  res.status(200).json({ message: "Logout successful" });
 });
 
 export default router;

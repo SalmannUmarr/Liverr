@@ -305,12 +305,6 @@ const Register = () => {
     e.preventDefault();
     if (!validateForm()) return;
 
-    // Check for admin credentials
-    if (type === "login" && user.email === "admin@admin.com" && user.password === "admin123") {
-      navigate("/admin/dashboard");
-      return;
-    }
-  
     try {
       const apiUrl = `https://liverbackend.vercel.app/api/auth/${type}`;
       const response = await axios.post(apiUrl, user); 
@@ -319,12 +313,13 @@ const Register = () => {
         const currentUser = {
           id: response.data.currentUser.id,
           name: response.data.currentUser.username,  
+          role: response.data.currentUser.role,
           isSeller: response.data.currentUser.isSeller,
           isVerified: response.data.currentUser.isVerified,
           token: response.data.token
         };
         localStorage.setItem("currentUser", JSON.stringify(currentUser));
-        window.location.href="/"; 
+        window.location.href = currentUser.role === "admin" ? "/admin/dashboard" : "/";
       } else {
         setIsFlipped(false); 
       }

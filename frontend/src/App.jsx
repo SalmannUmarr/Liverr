@@ -6,7 +6,6 @@ import {
   Navigate,
   Outlet,
 } from "react-router-dom";
-import axios from "axios";
 import "./App.css";
 import CustomNavbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
@@ -61,7 +60,8 @@ const GuestRoute = ({ children }) => {
   return !user ? children : <Navigate to="/" replace />;
 };
 const AdminRoute = ({ children }) => {
-  return children ;
+  const user = getCurrentUser();
+  return user?.role === "admin" ? children : <Navigate to="/" replace />;
 };
 
 const App = () => {
