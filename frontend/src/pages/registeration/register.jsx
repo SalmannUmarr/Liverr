@@ -253,12 +253,12 @@
 // export default Register;
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Import for navigation
 import "./register.css"; 
 
 const Register = () => {
-  const navigate = useNavigate(); // Hook for navigation
   const [isFlipped, setIsFlipped] = useState(false);
+  const [passwordMode, setPasswordMode] = useState("login");
+  const [resetToken, setResetToken] = useState("");
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -336,6 +336,50 @@ const Register = () => {
       setError(err.response?.data?.message || "Something went wrong.");
     }
   };
+
+  const handleForgotPassword = async (e) => {
+    e.preventDefault();
+
+    if (!user.email) {
+      setError("Email is required.");
+      return;
+    }
+
+    try {
+      const response = await axios.post("https://liverbackend.vercel.app/api/auth/forgot-password", {
+        email: user.email,
+      });
+      setResetToken(response.data.resetToken || "");
+      setPasswordMode("reset");
+      setSuccess("Reset token generated. Use it to set a new password.");
+      setError("");
+    } catch (err) {
+      setError(err.response?.data?.message || "Unable to start password reset.");
+    }
+  };
+
+  const handleResetPassword = async (e) => {
+    e.preventDefault();
+
+    if (!resetToken || user.password.length < 8) {
+      setError("Enter the reset token and a password with at least 8 characters.");
+      return;
+    }
+
+    try {
+      await axios.post("https://liverbackend.vercel.app/api/auth/reset-password", {
+        token: resetToken,
+        password: user.password,
+      });
+      setPasswordMode("login");
+      setResetToken("");
+      setUser({ username: "", email: "", password: "" });
+      setSuccess("Password reset successful. Please login.");
+      setError("");
+    } catch (err) {
+      setError(err.response?.data?.message || "Unable to reset password.");
+    }
+  };
   
 
   return (
@@ -367,50 +411,124 @@ const Register = () => {
             
             {/* Right Section */}
             <div className="right-section">
-              <h3 className="text-xl font-medium mb-3">Sign in to your account</h3>
-              <p className="mb-4 text-gray-600">
-                Don't have an account?{" "}
-                <a 
-                  href="#" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsFlipped(true);
-                  }}
-                  className="text-blue-600 hover:underline"
-                >
-                  Join here
-                </a>
-              </p>
+              <h3 className="text-xl font-medium mb-3">
+                {passwordMode === "login" ? "Sign in to your account" : "Reset your password"}
+              </h3>
+              {passwordMode === "login" && (
+                <p className="mb-4 text-gray-600">
+                  Don't have an account?{" "}
+                  <a 
+                    href="#" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsFlipped(true);
+                    }}
+                    className="text-blue-600 hover:underline"
+                  >
+                    Join here
+                  </a>
+                </p>
+              )}
               {error && <p className="text-red-500 mb-4">{error}</p>}
               {success && <p className="text-green-500 mb-4">{success}</p>}
               
-              <form onSubmit={(e) => handleSubmit(e, "login")}>
-                <div className="mb-4">
-                  <input
-                    type="email"
-                    name="email"
-                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Email"
-                    value={user.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="mb-4">
-                  <input
-                    type="password"
-                    name="password"
-                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Password"
-                    value={user.password}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-                  Login
+              {passwordMode === "login" && (
+                <form onSubmit={(e) => handleSubmit(e, "login")}>
+                  <div className="mb-4">
+                    <input
+                      type="email"
+                      name="email"
+                      className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Email"
+                      value={user.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <input
+                      type="password"
+                      name="password"
+                      className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Password"
+                      value={user.password}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                    Login
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setPasswordMode("forgot")}
+                    className="mt-3 text-sm text-blue-600 hover:underline"
+                  >
+                    Forgot password?
+                  </button>
+                </form>
+              )}
+
+              {passwordMode === "forgot" && (
+                <form onSubmit={handleForgotPassword}>
+                  <div className="mb-4">
+                    <input
+                      type="email"
+                      name="email"
+                      className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Account email"
+                      value={user.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                    Generate Reset Token
+                  </button>
+                </form>
+              )}
+
+              {passwordMode === "reset" && (
+                <form onSubmit={handleResetPassword}>
+                  <div className="mb-4">
+                    <input
+                      type="text"
+                      className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Reset token"
+                      value={resetToken}
+                      onChange={(e) => setResetToken(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <input
+                      type="password"
+                      name="password"
+                      className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="New password"
+                      value={user.password}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                    Reset Password
+                  </button>
+                </form>
+              )}
+
+              {passwordMode !== "login" && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setPasswordMode("login");
+                    setResetToken("");
+                  }}
+                  className="mt-3 text-sm text-blue-600 hover:underline"
+                >
+                  Back to login
                 </button>
-              </form>
+              )}
               
               <p className="mt-6 text-gray-500 text-center text-sm">
                 By joining, you agree to our <a href="#" className="text-blue-600 hover:underline">Terms of Service</a> and{" "}

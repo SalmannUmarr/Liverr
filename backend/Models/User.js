@@ -4,6 +4,8 @@ const UserSchema = new mongoose.Schema({
   username: { type: String, unique: true, required: true },
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
+  resetPasswordToken: { type: String },
+  resetPasswordExpires: { type: Date },
   verified: { type: Boolean, default: false },
   created_at: { type: Date, default: Date.now },
 
