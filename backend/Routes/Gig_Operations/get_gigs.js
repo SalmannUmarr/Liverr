@@ -1,5 +1,6 @@
 import express from "express";
 import { Gig, User, Review,FreelancerPortfolio,Order } from "../../Models/index.js";
+import { requireRole, verifyToken } from "../../Middleware/auth.js";
 
 const router = express.Router();
 
@@ -173,7 +174,7 @@ router.get("/gigs/budget", async (req, res) => {
   }
 });
 // Approve a gig by updating its isApproved field to true
-router.put("/gig/approve/:id", async (req, res) => {
+router.put("/gig/approve/:id", verifyToken, requireRole("admin"), async (req, res) => {
   try {
     const { id } = req.params;
 

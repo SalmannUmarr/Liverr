@@ -1,9 +1,10 @@
 import express from "express";
 import { User, FreelancerPortfolio, Gig, Order, Review , Messages as Message  } from "../../Models/index.js";
+import { requireRole, verifyToken } from "../../Middleware/auth.js";
 const router = express.Router();
 
 //update the role when clickeds
-router.put("/updateRole", async (req, res) => {
+router.put("/updateRole", verifyToken, requireRole("admin"), async (req, res) => {
   try {
     const { id, newRole } = req.body;
 
@@ -20,6 +21,25 @@ router.put("/updateRole", async (req, res) => {
     });
   } catch (error) {
     console.error("Error updating user role:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+router.put("/becomeSeller", verifyToken, async (req, res) => {
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      req.user._id,
+      { role: "freelancer" },
+      { new: true }
+    ).select("-password");
+
+    res.status(200).json({
+      success: true,
+      message: "Seller role enabled successfully",
+      user: updatedUser,
+    });
+  } catch (error) {
+    console.error("Error enabling seller role:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
@@ -44,7 +64,7 @@ router.get("/getUser/:id", async (req, res) => {
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 });
-router.get("/getUsers", async (req, res) => {
+router.get("/getUsers", verifyToken, requireRole("admin"), async (req, res) => {
   try {
     // Get all users as plain objects
     const users = await User.find().lean();
@@ -93,7 +113,7 @@ router.get("/getUsers", async (req, res) => {
 });
 
 // DELETE /deleteUser/:id - Delete a user and their gigs
-router.delete("/deleteUser/:id", async (req, res) => {
+router.delete("/deleteUser/:id", verifyToken, requireRole("admin"), async (req, res) => {
   try {
     const { id } = req.params;
     

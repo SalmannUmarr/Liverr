@@ -2,7 +2,9 @@ import express from "express";
 import Order from "../../Models/Order.js";
 const router = express.Router();
 import { Gig, User, Review,FreelancerPortfolio } from "../../Models/index.js";
-router.get("/getorders", async (req, res) => {
+import { requireRole, verifyToken } from "../../Middleware/auth.js";
+
+router.get("/getorders", verifyToken, requireRole("admin"), async (req, res) => {
   try {
     const orders = await Order.find()
       .populate("gig_id", "title description price") // Populating gig details

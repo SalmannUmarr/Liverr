@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Eye, Trash2 } from "lucide-react";
 import axios from "axios";
+import { getAuthConfig } from "../../utils/authHeaders";
 
 const ManageOrders = () => {
   // Get active view from outlet context
@@ -27,7 +28,7 @@ const ManageOrders = () => {
   const fetchOrders = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('https://liverbackend.vercel.app/api/auth/getorders');
+      const response = await axios.get('https://liverbackend.vercel.app/api/auth/getorders', getAuthConfig());
       
       // Process data for both orders and transactions
       const allOrders = response.data.map(order => ({

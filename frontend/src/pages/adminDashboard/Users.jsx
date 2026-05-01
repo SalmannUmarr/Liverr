@@ -599,6 +599,7 @@ import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Eye, Trash2, Star } from "lucide-react";
 import axios from "axios"; // Assuming axios is installed for API calls
+import { getAuthConfig } from "../../utils/authHeaders";
 
 const Users = () => {
   // Get activeView from the outlet context
@@ -631,7 +632,8 @@ const Users = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://liverbackend.vercel.app/api/auth/getUsers"
+          "https://liverbackend.vercel.app/api/auth/getUsers",
+          getAuthConfig()
         );
         setUsersData(response.data.users || []);
         setError(null);
@@ -809,7 +811,8 @@ const Users = () => {
   const confirmDelete = async () => {
     try {
       await axios.delete(
-        `https://liverbackend.vercel.app/api/auth/deleteUser/${selectedItem.id}`
+        `https://liverbackend.vercel.app/api/auth/deleteUser/${selectedItem.id}`,
+        getAuthConfig()
       );
       // Remove the deleted user from state
       setUsersData(usersData.filter((user) => user._id !== selectedItem.id));

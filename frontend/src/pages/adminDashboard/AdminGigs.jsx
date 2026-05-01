@@ -186,6 +186,7 @@ import { useState, useEffect } from "react";
 import { Search, Filter, Check, X, AlertCircle } from "lucide-react";
 import GigCard from "../../components/gigCard/GigCard";
 import axios from "axios";
+import { getAuthConfig } from "../../utils/authHeaders";
 
 const AdminGigs = () => {
   const [gigs, setGigs] = useState([]);
@@ -239,7 +240,7 @@ const AdminGigs = () => {
   const handleApproveGig = async (gigId) => {
     try {
       setProcessingGigId(gigId);
-      const response = await axios.put(`https://liverbackend.vercel.app/api/auth/gig/approve/${gigId}`);
+      const response = await axios.put(`https://liverbackend.vercel.app/api/auth/gig/approve/${gigId}`, {}, getAuthConfig());
       
       if (response.status === 200) {
         // Update the gig status locally
