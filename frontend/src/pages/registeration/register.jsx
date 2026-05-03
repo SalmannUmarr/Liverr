@@ -285,6 +285,7 @@ const Register = () => {
   // Validation function
   const validateForm = () => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const strongPasswordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
     if (isFlipped && user.username.length < 4) {
       setError("Username must be at least 4 characters long.");
       return false;
@@ -293,8 +294,8 @@ const Register = () => {
       setError("Invalid email format.");
       return false;
     }
-    if (user.password.length < 8) {
-      setError("Password must be at least 8 characters long.");
+    if (!strongPasswordRegex.test(user.password)) {
+      setError("Password must be at least 8 characters and include a letter and number.");
       return false;
     }
     setError("");
@@ -361,8 +362,9 @@ const Register = () => {
   const handleResetPassword = async (e) => {
     e.preventDefault();
 
-    if (!resetToken || user.password.length < 8) {
-      setError("Enter the reset token and a password with at least 8 characters.");
+    const strongPasswordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
+    if (!resetToken || !strongPasswordRegex.test(user.password)) {
+      setError("Enter the reset token and a password with at least 8 characters, including a letter and number.");
       return;
     }
 

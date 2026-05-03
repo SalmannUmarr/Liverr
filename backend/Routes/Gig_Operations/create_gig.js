@@ -1,9 +1,10 @@
 import express from "express";
 import { Gig } from "../../Models/index.js";
+import { validateGig } from "../../Middleware/validate.js";
 
 const router = express.Router();
 
-router.post("/create/gig", async (req, res) => {
+router.post("/create/gig", validateGig, async (req, res) => {
   try {
     const { freelancer_id, title, description, price, revision, category, delivery_time, images, coverimage, gig_extras, gig_tags } = req.body;
 

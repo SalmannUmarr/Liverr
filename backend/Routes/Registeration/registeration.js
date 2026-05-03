@@ -4,6 +4,12 @@ import crypto from "crypto";
 import jwt from "jsonwebtoken";
 import { User } from "../../Models/index.js";
 import { verifyToken } from "../../Middleware/auth.js";
+import {
+  validateForgotPassword,
+  validateLogin,
+  validateResetPassword,
+  validateSignup,
+} from "../../Middleware/validate.js";
 
 
 
@@ -33,7 +39,7 @@ router.put("/hashPasswords", async (req, res) => {
   }
 });
 
-router.post("/signup", async (req, res) => {
+router.post("/signup", validateSignup, async (req, res) => {
   try {
     const { username, email, password } = req.body;
     const existingUser = await User.findOne({ $or: [{ email }, { username }] });
@@ -53,7 +59,7 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", validateLogin, async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -89,7 +95,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.post("/forgot-password", async (req, res) => {
+router.post("/forgot-password", validateForgotPassword, async (req, res) => {
   try {
     const { email } = req.body;
 
@@ -120,7 +126,7 @@ router.post("/forgot-password", async (req, res) => {
   }
 });
 
-router.post("/reset-password", async (req, res) => {
+router.post("/reset-password", validateResetPassword, async (req, res) => {
   try {
     const { token, password } = req.body;
 

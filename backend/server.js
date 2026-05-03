@@ -13,6 +13,7 @@ import Review from "./Routes/Review/Review.js";
 import userRoutes from "./Routes/User/user.js";
 import cookieParser from "cookie-parser";
 import http from "http";
+import { sanitizeRequestBody } from "./Middleware/validate.js";
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(sanitizeRequestBody);
 app.use(cors());
 app.use(cookieParser());
 

@@ -3,6 +3,7 @@ import Order from "../../Models/Order.js";
 const router = express.Router();
 import { Gig, User, Review,FreelancerPortfolio } from "../../Models/index.js";
 import { requireRole, verifyToken } from "../../Middleware/auth.js";
+import { validateOrder } from "../../Middleware/validate.js";
 
 router.get("/getorders", verifyToken, requireRole("admin"), async (req, res) => {
   try {
@@ -60,7 +61,7 @@ router.get("/orders/:currentUserId", async (req, res) => {
 
 
 
-router.post("/orders", async (req, res) => {
+router.post("/orders", validateOrder, async (req, res) => {
   try {
     const { gig_id, client_id, freelancer_id, total_amount, delivery_date, requirements } = req.body;
 
