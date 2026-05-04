@@ -14,6 +14,7 @@ import {
 import { faStar as farStar } from "@fortawesome/free-regular-svg-icons";
 import axios from "axios";
 import Message from "../Message/Message";
+import { getAuthConfig } from "../../utils/authHeaders";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -62,7 +63,8 @@ const Orders = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `https://liverbackend.vercel.app/api/auth/orders/${userId}`
+        `https://liverbackend.vercel.app/api/auth/orders/${userId}`,
+        getAuthConfig()
       );
       console.log(response.data);
       setOrders(response.data);
@@ -103,11 +105,11 @@ const Orders = () => {
       const response = await axios.put(
         `https://liverbackend.vercel.app/api/auth/orders/complete/${submitOrderId}`,
         formData,
-        {
+        getAuthConfig({
           headers: {
             "Content-Type": "multipart/form-data",
           },
-        }
+        })
       );
 
       // Update the order status in our local state
@@ -131,7 +133,8 @@ const Orders = () => {
     setProcessingAction(orderId + "-cancel");
     try {
       const response = await axios.delete(
-        `https://liverbackend.vercel.app/api/auth/orders/cancel/${orderId}`
+        `https://liverbackend.vercel.app/api/auth/orders/cancel/${orderId}`,
+        getAuthConfig()
       );
 
       // Update the order status in our local state

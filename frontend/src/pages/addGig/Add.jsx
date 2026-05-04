@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { getAuthConfig } from "../../utils/authHeaders";
 
 const Add = () => {
   const [title, setTitle] = useState("");
@@ -89,7 +90,7 @@ const Add = () => {
     };
 
     try {
-      const res = await axios.post("https://liverbackend.vercel.app/api/auth/create/gig", gigData);
+      const res = await axios.post("https://liverbackend.vercel.app/api/auth/create/gig", gigData, getAuthConfig());
       console.log("Gig created successfully:", res.data);
       setSuccess("Gig created successfully!");
       setTitle("");
@@ -297,4 +298,3 @@ const Add = () => {
 };
 
 export default Add;
-

@@ -84,7 +84,7 @@ const ManageOrders = () => {
     try {
       setLoading(true);
       console.log(selectedItem.id)
-       await axios.delete(`https://liverbackend.vercel.app/api/auth/orders/cancel/${selectedItem.id}`);
+       await axios.delete(`https://liverbackend.vercel.app/api/auth/orders/cancel/${selectedItem.id}`, getAuthConfig());
       
       // After successful cancellation, refresh the data
       await fetchOrders();

@@ -5,6 +5,13 @@ import { Gig, User, Review,FreelancerPortfolio } from "../../Models/index.js";
 import { requireRole, verifyToken } from "../../Middleware/auth.js";
 import { validateOrder } from "../../Middleware/validate.js";
 
+const isSameUser = (value, userId) => value?.toString() === userId.toString();
+
+const attachClientFromToken = (req, _res, next) => {
+  req.body.client_id = req.user._id.toString();
+  next();
+};
+
 router.get("/getorders", verifyToken, requireRole("admin"), async (req, res) => {
   try {
     const orders = await Order.find()
@@ -23,12 +30,16 @@ router.get("/getorders", verifyToken, requireRole("admin"), async (req, res) => 
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
-router.get("/orders/:currentUserId", async (req, res) => {
+router.get("/orders/:currentUserId", verifyToken, async (req, res) => {
   try {
     const { currentUserId } = req.params;
 
     if (!currentUserId) {
       return res.status(400).json({ message: "User ID is required" });
+    }
+
+    if (req.user.role !== "admin" && !isSameUser(currentUserId, req.user._id)) {
+      return res.status(403).json({ message: "Forbidden" });
     }
 
     const orders = await Order.find({
@@ -61,7 +72,7 @@ router.get("/orders/:currentUserId", async (req, res) => {
 
 
 
-router.post("/orders", validateOrder, async (req, res) => {
+router.post("/orders", verifyToken, attachClientFromToken, validateOrder, async (req, res) => {
   try {
     const { gig_id, client_id, freelancer_id, total_amount, delivery_date, requirements } = req.body;
 
@@ -82,13 +93,22 @@ router.post("/orders", validateOrder, async (req, res) => {
     res.status(500).json({ success: false, message: "Failed to create order", error: error.message });
   }
 });
-router.delete("/orders/cancel/:orderId", async (req, res) => {
+router.delete("/orders/cancel/:orderId", verifyToken, async (req, res) => {
   try {
     const { orderId } = req.params;
     const order = await Order.findById(orderId);
     if (!order) {
       return res.status(404).json({ message: "Order not found" });
     }
+    const canCancel =
+      req.user.role === "admin" ||
+      isSameUser(order.client_id, req.user._id) ||
+      isSameUser(order.freelancer_id, req.user._id);
+
+    if (!canCancel) {
+      return res.status(403).json({ message: "Forbidden" });
+    }
+
     await Order.findByIdAndDelete(orderId);
     res.status(200).json({ success: true, message: "Order deleted successfully" });
   } catch (error) {
@@ -96,13 +116,21 @@ router.delete("/orders/cancel/:orderId", async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
-router.put("/orders/complete/:orderId", async (req, res) => {
+router.put("/orders/complete/:orderId", verifyToken, async (req, res) => {
   try {
     const { orderId } = req.params;
     const order = await Order.findById(orderId);
     if (!order) {
       return res.status(404).json({ message: "Order not found" });
     }
+    const canComplete =
+      req.user.role === "admin" ||
+      isSameUser(order.freelancer_id, req.user._id);
+
+    if (!canComplete) {
+      return res.status(403).json({ message: "Forbidden" });
+    }
+
     order.status = "Completed";
     await order.save();
     res.status(200).json({ success: true, message: "Order marked as completed", order });

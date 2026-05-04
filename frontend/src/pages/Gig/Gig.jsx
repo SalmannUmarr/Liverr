@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { getAuthConfig } from "../../utils/authHeaders";
 
 function Gig() {
   const { id } = useParams();
@@ -134,6 +135,7 @@ function Gig() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          ...(getAuthConfig().headers || {}),
         },
         body: JSON.stringify(orderData),
       });

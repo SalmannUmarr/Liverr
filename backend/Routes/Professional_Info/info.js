@@ -1,13 +1,15 @@
 import express from "express";
 import { User, FreelancerPortfolio } from "../../Models/index.js";
+import { verifyToken } from "../../Middleware/auth.js";
 
 const router = express.Router();
 
-router.post("/professional_info", async (req, res) => {
+router.post("/professional_info", verifyToken, async (req, res) => {
   try {
-    const { userId, full_verification, freelancer_portfolio } = req.body;
+    const { full_verification, freelancer_portfolio } = req.body;
+    const userId = req.user._id;
 
-    if (!userId || !full_verification || !full_verification.full_name || !full_verification.profile_pic || !full_verification.country || !full_verification.cnic) {
+    if (!full_verification || !full_verification.full_name || !full_verification.profile_pic || !full_verification.country || !full_verification.cnic) {
       return res.status(400).json({ error: "Missing required full verification fields." });
     }
 

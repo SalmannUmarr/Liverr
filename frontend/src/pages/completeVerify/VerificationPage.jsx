@@ -590,6 +590,7 @@ import React, { useState, useEffect } from "react";
 import "./VerificationPage.css";
 import { Plus } from "lucide-react";
 import axios from "axios";
+import { getAuthConfig } from "../../utils/authHeaders";
 
 const VerificationPage = () => {
   const [step, setStep] = useState(1);
@@ -874,7 +875,8 @@ const VerificationPage = () => {
       // Make the API request with explicit configuration
       const response = await axios.post(
         "https://liverbackend.vercel.app/api/auth/professional_info",
-        requestData
+        requestData,
+        getAuthConfig()
       );
 
       if (response.status === 201) {
