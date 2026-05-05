@@ -7,6 +7,11 @@ const router = express.Router();
 router.put("/updateRole", verifyToken, requireRole("admin"), async (req, res) => {
   try {
     const { id, newRole } = req.body;
+    const allowedRoles = ["admin", "client", "freelancer"];
+
+    if (!allowedRoles.includes(newRole)) {
+      return res.status(400).json({ message: "Invalid role" });
+    }
 
     const updatedUser = await User.findByIdAndUpdate(
       id,
@@ -21,6 +26,39 @@ router.put("/updateRole", verifyToken, requireRole("admin"), async (req, res) =>
     });
   } catch (error) {
     console.error("Error updating user role:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+router.put("/updateStatus", verifyToken, requireRole("admin"), async (req, res) => {
+  try {
+    const { id, isActive } = req.body;
+
+    if (typeof isActive !== "boolean") {
+      return res.status(400).json({ message: "Account status must be active or inactive" });
+    }
+
+    if (id?.toString() === req.user._id.toString() && !isActive) {
+      return res.status(400).json({ message: "Admin cannot deactivate their own account" });
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(
+      id,
+      { isActive },
+      { new: true }
+    ).select("-password");
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "User account status updated successfully",
+      user: updatedUser,
+    });
+  } catch (error) {
+    console.error("Error updating user account status:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });

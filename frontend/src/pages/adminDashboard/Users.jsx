@@ -686,6 +686,8 @@ const Users = () => {
       const completedProjects = countCompletedProjects(user.orders);
       return {
         id: user._id,
+        role: user.role,
+        isActive: user.isActive !== false,
         name:
           (user.full_verification && user.full_verification[0]?.full_name) ||
           user.username,
@@ -717,6 +719,8 @@ const Users = () => {
     .filter((user) => user.role === "client" || !user.portfolio)
     .map((user) => ({
       id: user._id,
+      role: user.role,
+      isActive: user.isActive !== false,
       name:
         (user.full_verification && user.full_verification[0]?.full_name) ||
         user.username,
@@ -728,7 +732,7 @@ const Users = () => {
       phone: "Not provided", // Not available in API
       signUpDate: new Date(user.created_at).toLocaleDateString(),
       lastLogin: "Not available", // Not available in API
-      accountStatus: user.verified ? "Verified" : "Unverified",
+      accountStatus: user.isActive === false ? "Inactive" : "Active",
       totalSpending: user.orders
         ? "$" +
           user.orders.reduce(
@@ -830,6 +834,42 @@ const Users = () => {
       );
     } finally {
       setDeleteModalVisible(false);
+    }
+  };
+
+  const updateUserInState = (updatedUser) => {
+    setUsersData((currentUsers) =>
+      currentUsers.map((user) =>
+        user._id === updatedUser._id ? { ...user, ...updatedUser } : user
+      )
+    );
+  };
+
+  const handleRoleChange = async (item, newRole) => {
+    try {
+      const response = await axios.put(
+        "https://liverbackend.vercel.app/api/auth/updateRole",
+        { id: item.id, newRole },
+        getAuthConfig()
+      );
+      updateUserInState(response.data.user);
+    } catch (error) {
+      console.error("Error updating role:", error);
+      alert(error.response?.data?.message || "Failed to update user role.");
+    }
+  };
+
+  const handleStatusToggle = async (item) => {
+    try {
+      const response = await axios.put(
+        "https://liverbackend.vercel.app/api/auth/updateStatus",
+        { id: item.id, isActive: !item.isActive },
+        getAuthConfig()
+      );
+      updateUserInState(response.data.user);
+    } catch (error) {
+      console.error("Error updating account status:", error);
+      alert(error.response?.data?.message || "Failed to update account status.");
     }
   };
 
@@ -1043,6 +1083,12 @@ const Users = () => {
                   <th className="px-6 py-3 text-left text-sm font-semibold text-gray-600">
                     Actions
                   </th>
+                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-600">
+                    Role
+                  </th>
+                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-600">
+                    Status
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 text-sm">
@@ -1093,12 +1139,35 @@ const Users = () => {
                           </button>
                         </div>
                       </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <select
+                          value={item.role}
+                          onChange={(event) => handleRoleChange(item, event.target.value)}
+                          className="border border-gray-300 rounded px-2 py-1 text-sm"
+                        >
+                          <option value="client">Client</option>
+                          <option value="freelancer">Freelancer</option>
+                          <option value="admin">Admin</option>
+                        </select>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <button
+                          onClick={() => handleStatusToggle(item)}
+                          className={`px-3 py-1 rounded text-xs font-semibold ${
+                            item.isActive
+                              ? "bg-green-100 text-green-700 hover:bg-green-200"
+                              : "bg-red-100 text-red-700 hover:bg-red-200"
+                          }`}
+                        >
+                          {item.isActive ? "Active" : "Inactive"}
+                        </button>
+                      </td>
                     </tr>
                   ))
                 ) : (
                   <tr>
                     <td
-                      colSpan="5"
+                      colSpan="7"
                       className="px-6 py-4 text-center text-gray-500"
                     >
                       No {activeView} found matching your filters

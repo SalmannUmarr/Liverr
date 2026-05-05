@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema({
   resetPasswordToken: { type: String },
   resetPasswordExpires: { type: Date },
   verified: { type: Boolean, default: false },
+  isActive: { type: Boolean, default: true },
   created_at: { type: Date, default: Date.now },
 
   role: { 

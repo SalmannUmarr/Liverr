@@ -18,6 +18,10 @@ export const verifyToken = async (req, res, next) => {
       return res.status(401).json({ message: "Invalid session" });
     }
 
+    if (!user.isActive) {
+      return res.status(403).json({ message: "Account is deactivated" });
+    }
+
     req.user = user;
     next();
   } catch (error) {

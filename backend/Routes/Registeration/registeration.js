@@ -67,6 +67,9 @@ router.post("/login", validateLogin, async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
+    if (!user.isActive) {
+      return res.status(403).json({ message: "Account is deactivated. Contact admin." });
+    }
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(401).json({ message: "Invalid credentials" });
@@ -79,6 +82,7 @@ router.post("/login", validateLogin, async (req, res) => {
       id: user._id,
       username: user.username,
       role: user.role,
+      isActive: user.isActive,
       isSeller: user.role === "freelancer",
       isVerified:user.verified
     };
