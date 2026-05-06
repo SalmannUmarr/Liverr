@@ -11,6 +11,7 @@ export const getAuthConfig = (config = {}) => {
 
   return {
     ...config,
+    withCredentials: true,
     headers: {
       ...config.headers,
       ...(token ? { Authorization: `Bearer ${token}` } : {}),

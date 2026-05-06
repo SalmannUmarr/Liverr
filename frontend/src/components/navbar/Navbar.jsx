@@ -39,7 +39,15 @@ const Navbar = () => {
 
   useEffect(() => {
     if (currentUser && currentUser.token) {
-      const decoded = jwtDecode(currentUser.token);
+      let decoded;
+
+      try {
+        decoded = jwtDecode(currentUser.token);
+      } catch {
+        handleLogout();
+        return;
+      }
+
       const currentTime = Date.now() / 1000;
 
       if (decoded.exp < currentTime) {
@@ -66,6 +74,12 @@ const Navbar = () => {
   };
 
   const handleLogout = async () => {
+    try {
+      await axios.post("https://liverbackend.vercel.app/api/auth/logout", {}, getAuthConfig());
+    } catch (error) {
+      console.error("Logout request failed:", error);
+    }
+
     localStorage.removeItem("currentUser");
     setCurrentUser(null);
     setDarkMode(false);

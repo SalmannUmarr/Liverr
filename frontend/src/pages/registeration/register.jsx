@@ -308,7 +308,7 @@ const Register = () => {
 
     try {
       const apiUrl = `https://liverbackend.vercel.app/api/auth/${type}`;
-      const response = await axios.post(apiUrl, user); 
+      const response = await axios.post(apiUrl, user, { withCredentials: true }); 
   
       if (type === "login") {
         const currentUser = {

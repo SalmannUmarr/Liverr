@@ -22,7 +22,12 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(sanitizeRequestBody);
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
 app.use(cookieParser());
 
 const myvar = "/api/auth";
