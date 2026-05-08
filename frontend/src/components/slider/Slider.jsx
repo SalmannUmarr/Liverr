@@ -35,7 +35,7 @@ const NextArrow = (props) => {
   const { onClick } = props;
   return (
     <button 
-      className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center text-green-600 hover:scale-110 transition-all duration-300 mr-4 opacity-90 hover:opacity-100"
+      className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center text-red-600 hover:scale-110 transition-all duration-300 mr-4 opacity-90 hover:opacity-100"
       onClick={onClick}
     >
       <FontAwesomeIcon icon={faChevronRight} />
@@ -47,7 +47,7 @@ const PrevArrow = (props) => {
   const { onClick } = props;
   return (
     <button 
-      className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center text-green-600 hover:scale-110 transition-all duration-300 ml-4 opacity-90 hover:opacity-100"
+      className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center text-red-600 hover:scale-110 transition-all duration-300 ml-4 opacity-90 hover:opacity-100"
       onClick={onClick}
     >
       <FontAwesomeIcon icon={faChevronLeft} />
@@ -129,7 +129,7 @@ const Slide = ({ children, slidesToShow, arrowsScroll, background = "bg-gray-50"
               {title}
             </motion.h3>
             <motion.div 
-              className="w-20 h-1 bg-green-500 mx-auto rounded-full"
+              className="w-20 h-1 bg-red-500 mx-auto rounded-full"
               initial={{ width: 0 }}
               whileInView={{ width: 80 }}
               transition={{ duration: 0.8, delay: 0.5 }}

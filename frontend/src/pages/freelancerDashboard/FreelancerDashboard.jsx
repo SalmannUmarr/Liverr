@@ -585,14 +585,14 @@ useEffect(() => {
               {/* Step 3 */}
               <div className="border p-4 rounded text-center hover:shadow-md transition-shadow">
                 <div className="flex justify-center">
-                  <Star className="w-8 h-8 text-green-500" />
+                  <Star className="w-8 h-8 text-red-500" />
                 </div>
                 <h4 className="font-semibold text-gray-700 mb-2 mt-4">Become a successful seller</h4>
                 <p className="text-sm text-gray-600 mb-2">
                   Master the best practices, and watch every course completely free.
                 </p>
                 <button
-                  className="mt-2 bg-white text-green-600 border border-green-600 px-4 py-2 rounded hover:bg-green-600 hover:text-white focus:outline-none transition-colors"
+                  className="mt-2 bg-white text-red-600 border border-red-600 px-4 py-2 rounded hover:bg-red-600 hover:text-white focus:outline-none transition-colors"
                 >
                   Watch Free Course
                 </button>
@@ -621,7 +621,7 @@ useEffect(() => {
                       <h3 className="font-medium">Orders completed</h3>
                       <p className="text-sm text-gray-500">You have completed {userData.completedOrders} order(s)</p>
                     </div>
-                    <Link to="/orders?status=completed" className="text-green-500 text-sm hover:underline">
+                    <Link to="/orders?status=completed" className="text-red-500 text-sm hover:underline">
                       View history
                     </Link>
                   </div>

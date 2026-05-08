@@ -120,7 +120,7 @@ const Add = () => {
           Add New Gig
         </h1>
         {error && <p className="text-red-500 mb-4">{error}</p>}
-        {success && <p className="text-green-500 mb-4">{success}</p>}
+        {success && <p className="text-red-500 mb-4">{success}</p>}
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div className="space-y-6">
@@ -131,7 +131,7 @@ const Add = () => {
                   placeholder="e.g. I will create an amazing website"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  className="w-full mt-2 px-4 py-3 border rounded-md focus:ring-2 focus:ring-green-400"
+                  className="w-full mt-2 px-4 py-3 border rounded-md focus:ring-2 focus:ring-red-400"
                   required
                 />
               </div>
@@ -140,7 +140,7 @@ const Add = () => {
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="w-full mt-2 px-4 py-3 border rounded-md focus:ring-2 focus:ring-green-400"
+                  className="w-full mt-2 px-4 py-3 border rounded-md focus:ring-2 focus:ring-red-400"
                   required
                 >
                   <option value="design">Design</option>
@@ -175,7 +175,7 @@ const Add = () => {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   rows="8"
-                  className="w-full mt-2 px-4 py-3 border rounded-md focus:ring-2 focus:ring-green-400"
+                  className="w-full mt-2 px-4 py-3 border rounded-md focus:ring-2 focus:ring-red-400"
                   required
                 ></textarea>
               </div>
@@ -188,7 +188,7 @@ const Add = () => {
                   placeholder="e.g. One-page web design"
                   value={serviceTitle}
                   onChange={(e) => setServiceTitle(e.target.value)}
-                  className="w-full mt-2 px-4 py-3 border rounded-md focus:ring-2 focus:ring-green-400"
+                  className="w-full mt-2 px-4 py-3 border rounded-md focus:ring-2 focus:ring-red-400"
                   required
                 />
               </div>
@@ -200,11 +200,11 @@ const Add = () => {
                     value={tagInput}
                     onChange={(e) => setTagInput(e.target.value)}
                     placeholder="Add tag"
-                    className="flex-1 px-4 py-3 border rounded-md focus:ring-2 focus:ring-green-400"
+                    className="flex-1 px-4 py-3 border rounded-md focus:ring-2 focus:ring-red-400"
                   />
                   <button
                     onClick={handleAddTag}
-                    className="px-4 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
+                    className="px-4 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
                   >
                     Add Tag
                   </button>
@@ -236,7 +236,7 @@ const Add = () => {
                     placeholder="e.g. 3 days"
                     value={deliveryTime}
                     onChange={(e) => setDeliveryTime(e.target.value)}
-                    className="w-full mt-2 px-4 py-3 border rounded-md focus:ring-2 focus:ring-green-400"
+                    className="w-full mt-2 px-4 py-3 border rounded-md focus:ring-2 focus:ring-red-400"
                     required
                   />
                 </div>
@@ -247,7 +247,7 @@ const Add = () => {
                     placeholder="e.g. 2"
                     value={revisions}
                     onChange={(e) => setRevisions(e.target.value)}
-                    className="w-full mt-2 px-4 py-3 border rounded-md focus:ring-2 focus:ring-green-400"
+                    className="w-full mt-2 px-4 py-3 border rounded-md focus:ring-2 focus:ring-red-400"
                     required
                   />
                 </div>
@@ -260,14 +260,14 @@ const Add = () => {
                     placeholder="e.g. Extra fast delivery (1 day)"
                     value={gigExtraName}
                     onChange={(e) => setGigExtraName(e.target.value)}
-                    className="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-green-400"
+                    className="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-red-400"
                   />
                   <input
                     type="number"
                     placeholder="Price ($)"
                     value={gigExtraPrice}
                     onChange={(e) => setGigExtraPrice(e.target.value)}
-                    className="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-green-400"
+                    className="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-red-400"
                   />
                 </div>
               </div>
@@ -278,7 +278,7 @@ const Add = () => {
                   placeholder="e.g. $50"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
-                  className="w-full mt-2 px-4 py-3 border rounded-md focus:ring-2 focus:ring-green-400"
+                  className="w-full mt-2 px-4 py-3 border rounded-md focus:ring-2 focus:ring-red-400"
                   required
                 />
               </div>
@@ -287,7 +287,7 @@ const Add = () => {
           <div className="flex justify-center mt-10">
             <button
               type="submit"
-              className="w-full max-w-md bg-green-500 text-white py-3 rounded-md hover:bg-green-600 transition text-lg font-semibold"
+              className="w-full max-w-md bg-red-500 text-white py-3 rounded-md hover:bg-red-600 transition text-lg font-semibold"
             >
               Create Gig
             </button>

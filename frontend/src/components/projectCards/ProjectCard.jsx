@@ -65,7 +65,7 @@ const ProjectCard = ({ card, isHovered, onMouseEnter, onMouseLeave }) => {
             transition={{ duration: 0.3 }}
           >
             <motion.button 
-              className="bg-white text-green-700 px-6 py-2 rounded-md font-semibold shadow-lg hover:bg-green-500 hover:text-white transition-colors duration-300"
+              className="bg-white text-red-700 px-6 py-2 rounded-md font-semibold shadow-lg hover:bg-red-500 hover:text-white transition-colors duration-300"
               whileTap={{ scale: 0.95 }}
               initial={{ y: 20 }}
               animate={{ y: isHovered ? 0 : 20 }}

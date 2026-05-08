@@ -78,7 +78,7 @@
           
 //           {/* Delivery time - NEW */}
 //           <div className="flex items-center mt-2 text-xs text-gray-500">
-//             <FontAwesomeIcon icon={faCheck} className="text-green-500 mr-1" />
+//             <FontAwesomeIcon icon={faCheck} className="text-red-500 mr-1" />
 //             <span>{props.item.delivery_time} day delivery</span>
 //           </div>
           
@@ -94,7 +94,7 @@
 //               <span className="text-gray-500 text-xs">Starting at</span>
 //               <h5 className="text-lg font-bold text-black">
 //                 {isHovered ? (
-//                   <span className="text-green-500">PKR {priceInPKR}</span>
+//                   <span className="text-red-500">PKR {priceInPKR}</span>
 //                 ) : (
 //                   <span>${props.item.price}</span>
 //                 )}
@@ -192,7 +192,7 @@ const GigCard = (props) => {
                 alt="User"
                 className="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm"
               />
-              <div className="absolute -bottom-1 -right-1 bg-green-500 rounded-full w-3 h-3 border border-white"></div>
+              <div className="absolute -bottom-1 -right-1 bg-red-500 rounded-full w-3 h-3 border border-white"></div>
             </div>
             <div className="ml-2">
               <span className="text-sm font-bold block">
@@ -228,7 +228,7 @@ const GigCard = (props) => {
               <span>{props.item.delivery_time} day delivery</span>
             </div>
             <div className="flex items-center">
-              <FontAwesomeIcon icon={faCheck} className="text-green-500 mr-1" />
+              <FontAwesomeIcon icon={faCheck} className="text-red-500 mr-1" />
               <span>{satisfaction}% Satisfaction</span>
             </div>
           </div>
@@ -237,7 +237,7 @@ const GigCard = (props) => {
             <div className="flex justify-end items-center">
               <div className="text-right">
                 <span className="text-gray-500 text-xs block">Starting at</span>
-                <h5 className={`text-lg font-bold transition-colors duration-300 ${isHovered ? 'text-green-500' : 'text-black'}`}>
+                <h5 className={`text-lg font-bold transition-colors duration-300 ${isHovered ? 'text-red-500' : 'text-black'}`}>
                   {isHovered ? `PKR ${priceInPKR}` : `$${props.item.price}`}
                 </h5>
               </div>

@@ -237,7 +237,7 @@ const AdminDashboard = () => {
     return (
       <div className="flex items-center justify-center h-screen">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
+          <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading dashboard data...</p>
         </div>
       </div>
@@ -254,7 +254,7 @@ const AdminDashboard = () => {
           </div>
           <p className="text-xl text-gray-700">{error}</p>
           <button 
-            className="mt-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
+            className="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
             onClick={() => window.location.reload()}
           >
             Try Again
@@ -278,7 +278,7 @@ const AdminDashboard = () => {
           {/* Total Users Card */}
           <div className="bg-white p-6 rounded-lg shadow hover:shadow-xl transition-shadow">
             <div className="flex items-center">
-              <FontAwesomeIcon icon={faUsers} className="text-green-500 text-3xl mr-4" />
+              <FontAwesomeIcon icon={faUsers} className="text-red-500 text-3xl mr-4" />
               <div>
                 <p className="text-gray-500">Total Users</p>
                 <h2 className="text-2xl font-bold">{totalUsers.toLocaleString()}</h2>
@@ -289,7 +289,7 @@ const AdminDashboard = () => {
           {/* Total Revenue Card */}
           <div className="bg-white p-6 rounded-lg shadow hover:shadow-xl transition-shadow">
             <div className="flex items-center">
-              <FontAwesomeIcon icon={faDollarSign} className="text-green-500 text-3xl mr-4" />
+              <FontAwesomeIcon icon={faDollarSign} className="text-red-500 text-3xl mr-4" />
               <div>
                 <p className="text-gray-500">Total Revenue</p>
                 <h2 className="text-2xl font-bold">${totalRevenue.toLocaleString()}</h2>

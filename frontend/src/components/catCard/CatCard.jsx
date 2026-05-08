@@ -92,7 +92,7 @@ const CatCard = ({ card, isHovered, onMouseEnter, onMouseLeave }) => {
             transition={{ duration: 0.3 }}
           >
             <motion.button 
-              className="bg-white text-green-800 px-4 py-2 rounded-md font-medium text-sm hover:bg-green-500 hover:text-white transition-colors duration-300"
+              className="bg-white text-red-800 px-4 py-2 rounded-md font-medium text-sm hover:bg-red-500 hover:text-white transition-colors duration-300"
               whileTap={{ scale: 0.95 }}
             >
               Explore Now

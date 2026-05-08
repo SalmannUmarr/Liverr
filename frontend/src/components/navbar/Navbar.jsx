@@ -119,7 +119,7 @@ const Navbar = () => {
   const isHomePage = pathname === "/";
   const navbarBg = scrolled || !isHomePage 
     ? darkMode ? "bg-gray-800 shadow-md" : "bg-white shadow-md" 
-    : "bg-[#013914]";
+    : "bg-[#7f1d1d]";
   const textColor = scrolled || !isHomePage 
     ? darkMode ? "text-gray-200" : "text-gray-700" 
     : "text-white";
@@ -133,7 +133,7 @@ const Navbar = () => {
             <div className="flex items-center">
               <Link to="/" className="text-2xl font-bold">
                 <span className={isHomePage && !scrolled ? "text-white" : darkMode ? "text-white" : "text-[#404145]"}>liverr</span>
-                <span className="text-green-500">.</span>
+                <span className="text-red-500">.</span>
               </Link>
             </div>
 
@@ -155,7 +155,7 @@ const Navbar = () => {
                 Liverr Business
               </span>
               
-              <Link to="/gigs" className={`${textColor} hover:text-green-500 transition-colors`}>
+              <Link to="/gigs" className={`${textColor} hover:text-red-500 transition-colors`}>
                 Explore
               </Link>
               
@@ -171,7 +171,7 @@ const Navbar = () => {
                   {!currentUser.isSeller && (
                     <button
                       onClick={handleBecomeSellerClick}
-                      className="px-4 py-2 rounded-md border border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition-colors"
+                      className="px-4 py-2 rounded-md border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition-colors"
                     >
                       Become a Seller
                     </button>
@@ -183,10 +183,10 @@ const Navbar = () => {
                         <img
                           src={currentUser.img}
                           alt={currentUser.name}
-                          className="w-8 h-8 rounded-full object-cover border-2 border-green-500"
+                          className="w-8 h-8 rounded-full object-cover border-2 border-red-500"
                         />
                       ) : (
-                        <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white">
+                        <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white">
                           {currentUser.name?.[0]?.toUpperCase() || "A"}
                         </div>
                       )}
@@ -296,7 +296,7 @@ const Navbar = () => {
                 <div className="flex items-center space-x-4">
                   <button
                     onClick={handleRegisterClick}
-                    className="px-4 py-2 rounded-md bg-green-500 text-white hover:bg-green-600 transition-colors"
+                    className="px-4 py-2 rounded-md bg-red-500 text-white hover:bg-red-600 transition-colors"
                   >
                     Join
                   </button>
@@ -318,7 +318,7 @@ const Navbar = () => {
               </span>
               <Link 
                 to="/gigs" 
-                className={`text-lg font-medium ${darkMode ? "text-white" : "text-gray-900"} hover:text-green-500`}
+                className={`text-lg font-medium ${darkMode ? "text-white" : "text-gray-900"} hover:text-red-500`}
               >
                 Explore
               </Link>
@@ -329,14 +329,14 @@ const Navbar = () => {
               {/* User actions */}
               {currentUser ? (
                 <>
-                  <Link to="/verify" className={`text-lg font-medium ${darkMode ? "text-white" : "text-gray-900"} hover:text-green-500`}>
+                  <Link to="/verify" className={`text-lg font-medium ${darkMode ? "text-white" : "text-gray-900"} hover:text-red-500`}>
                     Verify Account
                   </Link>
                   
                   {!currentUser.isSeller && (
                     <button
                       onClick={handleBecomeSellerClick}
-                      className="px-4 py-2 rounded-md border border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition-colors text-left"
+                      className="px-4 py-2 rounded-md border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition-colors text-left"
                     >
                       Become a Seller
                     </button>
@@ -345,13 +345,13 @@ const Navbar = () => {
                   {currentUser.isSeller ? (
                     <>
                       <div className={`text-xs font-semibold ${darkMode ? "text-gray-400" : "text-gray-500"}`}>Seller</div>
-                      <Link to="/FreelancerDashboard" className={`text-lg font-medium ${darkMode ? "text-white" : "text-gray-900"} hover:text-green-500`}>
+                      <Link to="/FreelancerDashboard" className={`text-lg font-medium ${darkMode ? "text-white" : "text-gray-900"} hover:text-red-500`}>
                         Dashboard
                       </Link>
-                      <Link to="/myGigs" className={`text-lg font-medium ${darkMode ? "text-white" : "text-gray-900"} hover:text-green-500`}>
+                      <Link to="/myGigs" className={`text-lg font-medium ${darkMode ? "text-white" : "text-gray-900"} hover:text-red-500`}>
                         My Gigs
                       </Link>
-                      <Link to="/addGig" className={`text-lg font-medium ${darkMode ? "text-white" : "text-gray-900"} hover:text-green-500`}>
+                      <Link to="/addGig" className={`text-lg font-medium ${darkMode ? "text-white" : "text-gray-900"} hover:text-red-500`}>
                         Add New Gig
                       </Link>
                     </>
@@ -359,16 +359,16 @@ const Navbar = () => {
                     <div className={`text-xs font-semibold ${darkMode ? "text-gray-400" : "text-gray-500"}`}>Buyer</div>
                   )}
                   
-                  <Link to="/orders" className={`text-lg font-medium ${darkMode ? "text-white" : "text-gray-900"} hover:text-green-500`}>
+                  <Link to="/orders" className={`text-lg font-medium ${darkMode ? "text-white" : "text-gray-900"} hover:text-red-500`}>
                     Orders
                   </Link>
-                  <Link to="/messages" className={`text-lg font-medium ${darkMode ? "text-white" : "text-gray-900"} hover:text-green-500`}>
+                  <Link to="/messages" className={`text-lg font-medium ${darkMode ? "text-white" : "text-gray-900"} hover:text-red-500`}>
                     Messages
                   </Link>
                   
                   <button
                     onClick={toggleDarkMode}
-                    className={`text-lg font-medium ${darkMode ? "text-white" : "text-gray-900"} hover:text-green-500 text-left flex items-center`}
+                    className={`text-lg font-medium ${darkMode ? "text-white" : "text-gray-900"} hover:text-red-500 text-left flex items-center`}
                   >
                     {darkMode ? (
                       <>
@@ -394,7 +394,7 @@ const Navbar = () => {
               ) : (
                 <button
                   onClick={handleRegisterClick}
-                  className="px-4 py-2 rounded-md bg-green-500 text-white hover:bg-green-600 transition-colors self-start"
+                  className="px-4 py-2 rounded-md bg-red-500 text-white hover:bg-red-600 transition-colors self-start"
                 >
                   Join
                 </button>
@@ -421,7 +421,7 @@ const Navbar = () => {
               </button>
               <button
                 onClick={handleBecomeSeller}
-                className="px-4 py-2 bg-green-500 rounded-md text-white hover:bg-green-600 transition-colors"
+                className="px-4 py-2 bg-red-500 rounded-md text-white hover:bg-red-600 transition-colors"
               >
                 Yes, Become a Seller
               </button>

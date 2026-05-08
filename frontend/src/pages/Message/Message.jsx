@@ -193,7 +193,7 @@ const Message = ({id:propsId}) => {
       { bg: isCurrentUser ? "bg-purple-100 border-purple-200" : "bg-purple-500", rotate: "transform -rotate-1" },
       { bg: isCurrentUser ? "bg-blue-100 border-blue-200" : "bg-blue-500", rotate: "transform rotate-1" },
       { bg: isCurrentUser ? "bg-yellow-100 border-yellow-200" : "bg-yellow-500", rotate: "" },
-      { bg: isCurrentUser ? "bg-green-100 border-green-200" : "bg-green-500", rotate: "transform -rotate-1" }
+      { bg: isCurrentUser ? "bg-red-100 border-red-200" : "bg-red-500", rotate: "transform -rotate-1" }
     ];
     
     // Use message content length to pick a style (for consistency)
@@ -223,7 +223,7 @@ const Message = ({id:propsId}) => {
               <div className="animate-bounce flex space-x-2">
                 <div className="w-3 h-3 bg-pink-400 rounded-full"></div>
                 <div className="w-3 h-3 bg-blue-400 rounded-full animate-bounce"></div>
-                <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                <div className="w-3 h-3 bg-red-400 rounded-full"></div>
               </div>
             </div>
           ) : messages.length > 0 ? (
@@ -284,7 +284,7 @@ const Message = ({id:propsId}) => {
               onChange={(e) => setNewMessage(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder="Write a message..."
-              className="flex-1 p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-400 resize-none text-sm"
+              className="flex-1 p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-red-400 resize-none text-sm"
               rows="3"
             />
             <button
@@ -292,7 +292,7 @@ const Message = ({id:propsId}) => {
               disabled={!newMessage.trim()}
               className={`p-3 rounded-full ${
                 newMessage.trim() 
-                  ? "bg-green-500 text-white hover:bg-green-600" 
+                  ? "bg-red-500 text-white hover:bg-red-600"
                   : "bg-gray-200 text-gray-400 cursor-not-allowed"
               } transition-all flex items-center justify-center`}
             >

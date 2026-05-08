@@ -66,7 +66,7 @@ const Home = () => {
             variants={fadeInUp}
             className="text-4xl font-bold text-gray-800 mb-3 text-center"
           >
-            Explore Popular <span className="text-green-500">Categories</span>
+            Explore Popular <span className="text-red-500">Categories</span>
           </motion.h2>
           <motion.p 
             variants={fadeInUp}
@@ -86,7 +86,7 @@ const Home = () => {
             ))}
           </Slide>
         </div>
-        <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-green-100 rounded-full opacity-30 blur-3xl"></div>
+        <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-red-100 rounded-full opacity-30 blur-3xl"></div>
       </motion.div>
 
       {/* Features Section */}
@@ -94,9 +94,9 @@ const Home = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="bg-gradient-to-b from-green-50 to-green-100 py-28 relative"
+        className="bg-gradient-to-b from-red-50 to-red-100 py-28 relative"
       >
-        <div className="absolute top-0 right-0 w-96 h-96 bg-green-200 rounded-full opacity-20 blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-red-200 rounded-full opacity-20 blur-3xl -translate-y-1/2 translate-x-1/3"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-200 rounded-full opacity-20 blur-3xl translate-y-1/2 -translate-x-1/3"></div>
         
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 md:gap-20 px-5 md:px-10 relative z-10">
@@ -108,7 +108,7 @@ const Home = () => {
               variants={fadeInUp}
               className="text-5xl font-bold text-gray-800 leading-tight"
             >
-              A world of <span className="text-green-600">talent</span> at your fingertips
+              A world of <span className="text-red-600">talent</span> at your fingertips
             </motion.h2>
             
             {[
@@ -125,7 +125,7 @@ const Home = () => {
               >
                 <div className="flex items-center gap-4 text-xl font-semibold text-gray-800 mb-3">
                   <motion.div 
-                    className="w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center shadow-lg"
+                    className="w-10 h-10 rounded-full bg-gradient-to-r from-red-500 to-rose-500 flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.2, rotate: 5 }}
                   >
                     <FontAwesomeIcon icon={faCheck} className="text-white text-sm" />
@@ -151,7 +151,7 @@ const Home = () => {
             whileHover={{ scale: 1.02 }}
           >
             <div className="relative">
-              <div className="absolute -inset-2 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl blur opacity-30"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-red-400 to-blue-500 rounded-2xl blur opacity-30"></div>
               <div className="absolute -inset-1 bg-white/50 rounded-2xl blur-sm"></div>
               <video 
                 className="relative w-full rounded-xl shadow-2xl border-4 border-white" 
@@ -159,7 +159,7 @@ const Home = () => {
                 controls 
               />
               <motion.div
-                className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center shadow-xl"
+                className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-red-500 to-blue-500 rounded-full flex items-center justify-center shadow-xl"
                 animate={{ 
                   scale: [1, 1.1, 1],
                   rotate: [0, 5, 0],
@@ -186,7 +186,7 @@ const Home = () => {
       >
         <div className="parallax absolute top-0 left-0 w-full h-full" data-speed="-0.05">
           <div className="absolute top-20 left-20 w-72 h-72 rounded-full bg-blue-50"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 rounded-full bg-green-50"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 rounded-full bg-red-50"></div>
           <div className="absolute top-40 right-40 w-40 h-40 rounded-full bg-yellow-50"></div>
           <div className="absolute bottom-40 left-40 w-60 h-60 rounded-full bg-purple-50"></div>
         </div>
@@ -244,7 +244,7 @@ const Home = () => {
                 className="group flex flex-col items-center p-6 bg-white rounded-xl shadow-md transition-all duration-300"
               >
                 <motion.div 
-                  className="w-20 h-20 bg-gradient-to-br from-green-50 to-blue-50 rounded-full flex items-center justify-center mb-4 overflow-hidden"
+                  className="w-20 h-20 bg-gradient-to-br from-red-50 to-blue-50 rounded-full flex items-center justify-center mb-4 overflow-hidden"
                   whileHover={{ rotate: 5 }}
                 >
                   <motion.img
@@ -256,12 +256,12 @@ const Home = () => {
                 </motion.div>
                 <motion.div 
                   className="w-12 h-0.5 bg-gray-200 my-3"
-                  whileHover={{ width: 64, backgroundColor: "#10b981" }}
+                  whileHover={{ width: 64, backgroundColor: "#ef4444" }}
                   transition={{ type: "tween" }}
                 ></motion.div>
                 <span className="text-gray-700 font-medium text-center">{title}</span>
                 <motion.div
-                  className="mt-3 opacity-0 group-hover:opacity-100 flex items-center gap-1 text-green-500 font-medium"
+                  className="mt-3 opacity-0 group-hover:opacity-100 flex items-center gap-1 text-red-500 font-medium"
                   initial={{ height: 0 }}
                   whileHover={{ height: "auto" }}
                 >
@@ -306,7 +306,7 @@ const Home = () => {
           >
             <motion.div 
               variants={fadeInUp}
-              className="inline-block bg-gradient-to-r from-blue-400 to-green-400 px-6 py-3 rounded-full shadow-lg mb-6"
+              className="inline-block bg-gradient-to-r from-blue-400 to-red-400 px-6 py-3 rounded-full shadow-lg mb-6"
             >
               <h3 className="text-2xl font-bold flex items-center gap-2">
                 liverr <span className="font-light">business</span>
@@ -360,7 +360,7 @@ const Home = () => {
                 whileHover={{ x: 10 }}
               >
                 <motion.div 
-                  className="w-6 h-6 rounded-full bg-green-400 flex items-center justify-center flex-shrink-0"
+                  className="w-6 h-6 rounded-full bg-red-400 flex items-center justify-center flex-shrink-0"
                   whileHover={{ scale: 1.2 }}
                 >
                   <FontAwesomeIcon icon={faCheck} className="text-blue-900 text-sm" />
@@ -373,7 +373,7 @@ const Home = () => {
               variants={fadeInUp}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="mt-8 bg-gradient-to-r from-green-500 to-teal-500 text-white py-4 px-8 rounded-lg shadow-xl transition duration-300 font-bold text-lg group flex items-center gap-3"
+              className="mt-8 bg-gradient-to-r from-red-500 to-rose-500 text-white py-4 px-8 rounded-lg shadow-xl transition duration-300 font-bold text-lg group flex items-center gap-3"
             >
               Explore Liverr Business
               <motion.span
@@ -397,7 +397,7 @@ const Home = () => {
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="absolute -inset-3 bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 rounded-lg blur opacity-30"></div>
+              <div className="absolute -inset-3 bg-gradient-to-r from-red-400 via-blue-400 to-purple-400 rounded-lg blur opacity-30"></div>
               <div className="relative">
                 <img
                   className="w-full rounded-lg shadow-2xl"
@@ -442,7 +442,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative z-10">
           <motion.div variants={fadeInUp} className="text-center">
             <h2 className="text-5xl font-bold text-gray-800 mb-3">
-              Inspiring <span className="text-green-500">projects</span>
+              Inspiring <span className="text-red-500">projects</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
               Discover handpicked work from talented freelancers around the world
@@ -475,7 +475,7 @@ const Home = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-green-500 to-teal-500 text-white py-3 px-8 rounded-full shadow-lg flex items-center gap-3 font-semibold"
+              className="bg-gradient-to-r from-red-500 to-rose-500 text-white py-3 px-8 rounded-full shadow-lg flex items-center gap-3 font-semibold"
             >
               Discover all projects
               <motion.span
@@ -500,7 +500,7 @@ const Home = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInUp}
-        className="py-24 bg-gradient-to-r from-green-900 to-green-800 text-white relative overflow-hidden"
+        className="py-24 bg-gradient-to-r from-red-900 to-red-800 text-white relative overflow-hidden"
       >
         <div className="absolute top-0 left-0 w-full h-20 bg-[radial-gradient(circle,_rgba(255,255,255,0.1)_10%,_transparent_10.01%)] bg-[length:20px_20px]"></div>
         <div className="absolute bottom-0 right-0 w-full h-20 bg-[radial-gradient(circle,_rgba(255,255,255,0.1)_10%,_transparent_10.01%)] bg-[length:20px_20px]"></div>
@@ -514,7 +514,7 @@ const Home = () => {
           </motion.h2>
           <motion.p 
             variants={fadeInUp}
-            className="text-xl text-green-100 mb-10 max-w-2xl mx-auto"
+            className="text-xl text-red-100 mb-10 max-w-2xl mx-auto"
           >
             Join thousands of businesses and freelancers who are already thriving on our platform
           </motion.p>
@@ -526,12 +526,12 @@ const Home = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full sm:w-96 px-6 py-4 rounded-lg text-gray-800 focus:outline-none focus:ring-4 focus:ring-green-400/50"
+              className="w-full sm:w-96 px-6 py-4 rounded-lg text-gray-800 focus:outline-none focus:ring-4 focus:ring-red-400/50"
             />
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto whitespace-nowrap bg-gradient-to-r from-green-500 to-teal-500 text-white px-8 py-4 rounded-lg shadow-xl font-bold"
+              className="w-full sm:w-auto whitespace-nowrap bg-gradient-to-r from-red-500 to-rose-500 text-white px-8 py-4 rounded-lg shadow-xl font-bold"
             >
               Get Started
             </motion.button>

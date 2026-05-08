@@ -150,7 +150,7 @@ const ManageOrders = () => {
             <input
               type="text"
               placeholder="Enter order title"
-              className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400"
+              className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400"
               value={searchTitle}
               onChange={(e) => setSearchTitle(e.target.value)}
             />
@@ -163,7 +163,7 @@ const ManageOrders = () => {
             <input
               type="text"
               placeholder="Enter freelancer name"
-              className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400"
+              className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400"
               value={searchFreelancer}
               onChange={(e) => setSearchFreelancer(e.target.value)}
             />
@@ -176,7 +176,7 @@ const ManageOrders = () => {
             <input
               type="text"
               placeholder="Enter client name"
-              className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400"
+              className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400"
               value={searchClient}
               onChange={(e) => setSearchClient(e.target.value)}
             />
@@ -187,7 +187,7 @@ const ManageOrders = () => {
       {/* Loading Indicator */}
       {loading && (
         <div className="flex justify-center items-center p-8">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-500"></div>
         </div>
       )}
 
@@ -236,7 +236,7 @@ const ManageOrders = () => {
                       <td className="px-6 py-4 whitespace-nowrap">{item.budget}</td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span className={`px-2 py-1 rounded text-xs font-medium ${
-                          item.status === "Completed" ? "bg-green-100 text-green-800" :
+                          item.status === "Completed" ? "bg-red-100 text-red-800" :
                           item.status === "In Progress" ? "bg-blue-100 text-blue-800" :
                           "bg-yellow-100 text-yellow-800"
                         }`}>
@@ -332,7 +332,7 @@ const ManageOrders = () => {
             {/* Modal Footer */}
             <div className="border-t px-4 py-2 flex justify-end">
               <button 
-                className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
+                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
                 onClick={() => setIsDetailsModalOpen(false)}
               >
                 Close

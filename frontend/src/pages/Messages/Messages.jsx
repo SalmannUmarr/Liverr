@@ -42,7 +42,7 @@
 //             </thead>
 //             <tbody>
 //               {messagesData.map(({ id, name, time, active }) => (
-//                 <tr key={id} className={`${active ? "bg-green-50" : "bg-white"} hover:bg-gray-100 transition-all`}>
+//                 <tr key={id} className={`${active ? "bg-red-50" : "bg-white"} hover:bg-gray-100 transition-all`}>
 //                   <td className="p-4 font-medium">{name}</td>
 //                   <td className="p-4 text-gray-600">
 //                     <Link to={`/message/${id}`} className="text-blue-600 hover:underline">
@@ -52,7 +52,7 @@
 //                   <td className="p-4 text-gray-500">{time}</td>
 //                   <td className="p-4">
 //                     {active && (
-//                       <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
+//                       <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
 //                         Mark as Read
 //                       </button>
 //                     )}
@@ -271,7 +271,7 @@ const Messages = () => {
                           }}
                         />
                         {isUnread && (
-                          <span className="absolute -right-1 -top-1 w-3 h-3 bg-green-500 rounded-full border border-white"></span>
+                          <span className="absolute -right-1 -top-1 w-3 h-3 bg-red-500 rounded-full border border-white"></span>
                         )}
                       </div>
                       
@@ -293,7 +293,7 @@ const Messages = () => {
                       
                       {isUnread && (
                         <div className="ml-4 flex-shrink-0">
-                          <span className="inline-block w-2 h-2 bg-green-500 rounded-full"></span>
+                          <span className="inline-block w-2 h-2 bg-red-500 rounded-full"></span>
                         </div>
                       )}
                     </div>

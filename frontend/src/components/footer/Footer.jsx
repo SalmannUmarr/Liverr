@@ -35,7 +35,7 @@ const Footer = () => {
     hover: {
       scale: 1.2,
       rotate: [0, 10, -10, 0],
-      color: "#10B981",
+      color: "#ef4444",
       transition: {
         duration: 0.3
       }
@@ -45,7 +45,7 @@ const Footer = () => {
   const listItemVariants = {
     hover: {
       x: 5,
-      color: "#10B981",
+      color: "#ef4444",
       transition: { duration: 0.2 }
     }
   };
@@ -123,7 +123,7 @@ const Footer = () => {
               >
                 {category.title}
                 <motion.div 
-                  className="h-0.5 bg-green-500 mt-1"
+                  className="h-0.5 bg-red-500 mt-1"
                   initial={{ width: 0 }}
                   animate={{ width: hoveredCategory === idx ? "100%" : "0%" }}
                   transition={{ duration: 0.3 }}
@@ -236,7 +236,7 @@ const Footer = () => {
           {[...Array(5)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute hidden md:block w-2 h-2 rounded-full bg-green-400 opacity-70"
+              className="absolute hidden md:block w-2 h-2 rounded-full bg-red-400 opacity-70"
               initial={{ 
                 x: Math.random() * 100 - 50 + "%", 
                 y: Math.random() * 100 - 50 + "%" 

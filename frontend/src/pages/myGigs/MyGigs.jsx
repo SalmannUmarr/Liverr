@@ -74,7 +74,7 @@
 //     return (
 //       <div className="flex justify-center items-center h-screen bg-gray-50">
 //         <div className="flex flex-col items-center">
-//           <div className="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full animate-spin"></div>
+//           <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
 //           <p className="mt-4 text-xl font-medium text-gray-700">Loading your gigs...</p>
 //         </div>
 //       </div>
@@ -97,12 +97,12 @@
 //         {/* Title Section */}
 //         <div className="flex justify-between items-center mb-8 bg-white p-6 rounded-lg shadow-md">
 //           <h1 className="text-3xl font-bold text-gray-800 flex items-center">
-//             <span className="bg-green-500 w-2 h-8 rounded mr-3"></span>
+//             <span className="bg-red-500 w-2 h-8 rounded mr-3"></span>
 //             {currentUser.isSeller ? "My Gigs" : "My Orders"}
 //           </h1>
 //           {currentUser.isSeller && (
 //             <Link to="/addGig">
-//               <button className="bg-green-500 text-white font-medium px-6 py-3 rounded-lg hover:bg-green-600 transition duration-300 transform hover:scale-105 shadow-md flex items-center">
+//               <button className="bg-red-500 text-white font-medium px-6 py-3 rounded-lg hover:bg-red-600 transition duration-300 transform hover:scale-105 shadow-md flex items-center">
 //                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
 //                   <path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" />
 //                 </svg>
@@ -122,7 +122,7 @@
 //               <p className="text-2xl font-medium text-gray-700 mt-4">You don't have any gigs yet.</p>
 //               {currentUser.isSeller && (
 //                 <Link to="/addGig">
-//                   <button className="mt-6 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-300">
+//                   <button className="mt-6 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition duration-300">
 //                     Create your first gig
 //                     <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
 //                       <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -171,12 +171,12 @@
 //                         </div>
 //                       </td>
 //                       <td className="px-6 py-4 whitespace-nowrap">
-//                         <div className="text-lg font-bold text-green-600">
+//                         <div className="text-lg font-bold text-red-600">
 //                           ${gig.price}.<span className="text-xs">99</span>
 //                         </div>
 //                       </td>
 //                       <td className="px-6 py-4 whitespace-nowrap">
-//                         <div className="px-3 py-1 inline-flex items-center bg-green-100 text-green-800 rounded-full">
+//                         <div className="px-3 py-1 inline-flex items-center bg-red-100 text-red-800 rounded-full">
 //                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
 //                             <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
 //                           </svg>
@@ -300,7 +300,7 @@ const MyGigs = () => {
     return (
       <div className="flex justify-center items-center h-screen bg-gray-50">
         <div className="flex flex-col items-center">
-          <div className="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full animate-spin"></div>
+          <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
           <p className="mt-4 text-xl font-medium text-gray-700">Loading your gigs...</p>
         </div>
       </div>
@@ -323,12 +323,12 @@ const MyGigs = () => {
         {/* Title Section */}
         <div className="flex justify-between items-center mb-8 bg-white p-6 rounded-lg shadow-md">
           <h1 className="text-3xl font-bold text-gray-800 flex items-center">
-            <span className="bg-green-500 w-2 h-8 rounded mr-3"></span>
+            <span className="bg-red-500 w-2 h-8 rounded mr-3"></span>
             {currentUser.isSeller ? "My Approved Gigs" : "My Orders"}
           </h1>
           {currentUser.isSeller && (
             <Link to="/addGig">
-              <button className="bg-green-500 text-white font-medium px-6 py-3 rounded-lg hover:bg-green-600 transition duration-300 transform hover:scale-105 shadow-md flex items-center">
+              <button className="bg-red-500 text-white font-medium px-6 py-3 rounded-lg hover:bg-red-600 transition duration-300 transform hover:scale-105 shadow-md flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" />
                 </svg>
@@ -348,7 +348,7 @@ const MyGigs = () => {
               <p className="text-2xl font-medium text-gray-700 mt-4">You don't have any approved gigs yet.</p>
               {currentUser.isSeller && (
                 <Link to="/addGig">
-                  <button className="mt-6 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-300">
+                  <button className="mt-6 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition duration-300">
                     Create your first gig
                     <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -397,12 +397,12 @@ const MyGigs = () => {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-lg font-bold text-green-600">
+                        <div className="text-lg font-bold text-red-600">
                           ${gig.price}.<span className="text-xs">99</span>
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="px-3 py-1 inline-flex items-center bg-green-100 text-green-800 rounded-full">
+                        <div className="px-3 py-1 inline-flex items-center bg-red-100 text-red-800 rounded-full">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
                           </svg>

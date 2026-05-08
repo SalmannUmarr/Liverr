@@ -207,7 +207,7 @@ const Gigs = () => {
 
         {/* Hero Section */}
         <div className="relative mb-8">
-          <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-blue-600 opacity-80 rounded-xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-blue-600 opacity-80 rounded-xl"></div>
           <div className="relative py-12 px-8 md:px-12 text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-3"> Artists</h1>
             <p className="text-lg md:text-xl max-w-2xl">
@@ -224,12 +224,12 @@ const Gigs = () => {
                 ref={searchRef}
                 type="text"
                 placeholder="Keyword Search ..."
-                className="w-full py-3 px-5 pr-12 rounded-l-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full py-3 px-5 pr-12 rounded-l-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-red-500"
                 defaultValue={filters.search}
               />
               <button
                 type="submit"
-                className="bg-green-500 hover:bg-green-600 text-white rounded-r-lg px-5 transition duration-300"
+                className="bg-red-500 hover:bg-red-600 text-white rounded-r-lg px-5 transition duration-300"
               >
                 <FontAwesomeIcon icon={faSearch} />
               </button>
@@ -246,7 +246,7 @@ const Gigs = () => {
                 <h3 className="font-bold text-lg">Filters</h3>
                 <button
                   onClick={clearFilters}
-                  className="text-green-500 hover:text-green-600 text-sm font-medium flex items-center gap-1"
+                  className="text-red-500 hover:text-red-600 text-sm font-medium flex items-center gap-1"
                 >
                   <FontAwesomeIcon icon={faTimes} size="xs" />
                   Clear all
@@ -265,11 +265,11 @@ const Gigs = () => {
                         name="category"
                         checked={filters.category === category}
                         onChange={() => handleCategoryChange(category)}
-                        className="w-4 h-4 text-green-500 border-gray-300 focus:ring-green-500"
+                        className="w-4 h-4 text-red-500 border-gray-300 focus:ring-red-500"
                       />
                       <label
                         htmlFor={`category-${index}`}
-                        className="ml-2 text-sm text-gray-700 cursor-pointer hover:text-green-500 transition"
+                        className="ml-2 text-sm text-gray-700 cursor-pointer hover:text-red-500 transition"
                       >
                         {category}
                       </label>
@@ -291,7 +291,7 @@ const Gigs = () => {
                         ref={minRef}
                         type="number"
                         placeholder="Min"
-                        className="w-full pl-7 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full pl-7 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                         defaultValue={filters.minPrice}
                       />
                     </div>
@@ -303,14 +303,14 @@ const Gigs = () => {
                         ref={maxRef}
                         type="number"
                         placeholder="Max"
-                        className="w-full pl-7 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full pl-7 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                         defaultValue={filters.maxPrice}
                       />
                     </div>
                   </div>
                   <button
                     onClick={apply}
-                    className="py-2 bg-green-500 text-white font-medium rounded-md hover:bg-green-600 transition duration-300 text-sm"
+                    className="py-2 bg-red-500 text-white font-medium rounded-md hover:bg-red-600 transition duration-300 text-sm"
                   >
                     Apply
                   </button>
@@ -327,7 +327,7 @@ const Gigs = () => {
                       onClick={() => toggleTag(tag)}
                       className={`text-xs px-3 py-1.5 rounded-full transition duration-300 ${
                         filters.tags.includes(tag)
-                          ? "bg-green-500 text-white"
+                          ? "bg-red-500 text-white"
                           : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                       }`}
                     >
@@ -361,7 +361,7 @@ const Gigs = () => {
 <div className="relative flex items-center gap-3 text-sm">
   <span className="text-gray-500">Sort by</span>
   <div
-    className="flex items-center gap-1 cursor-pointer font-medium text-gray-700 hover:text-green-500 transition"
+    className="flex items-center gap-1 cursor-pointer font-medium text-gray-700 hover:text-red-500 transition"
     onClick={() => setOpen(!open)}
   >
     <span>
@@ -428,7 +428,7 @@ const Gigs = () => {
                   <FontAwesomeIcon
                     icon={faSpinner}
                     spin
-                    className="text-green-500 text-3xl mb-3"
+                    className="text-red-500 text-3xl mb-3"
                   />
                   <p className="text-gray-600">Loading services...</p>
                 </div>
@@ -446,7 +446,7 @@ const Gigs = () => {
                   <p className="text-gray-600 mb-4">{error}</p>
                   <button
                     onClick={() => window.location.reload()}
-                    className="px-4 py-2 bg-green-500 text-white font-medium rounded-md hover:bg-green-600 transition"
+                    className="px-4 py-2 bg-red-500 text-white font-medium rounded-md hover:bg-red-600 transition"
                   >
                     Try Again
                   </button>
@@ -467,7 +467,7 @@ const Gigs = () => {
                   </p>
                   <button
                     onClick={clearFilters}
-                    className="px-4 py-2 bg-green-500 text-white font-medium rounded-md hover:bg-green-600 transition"
+                    className="px-4 py-2 bg-red-500 text-white font-medium rounded-md hover:bg-red-600 transition"
                   >
                     Clear Filters
                   </button>
@@ -513,7 +513,7 @@ const Gigs = () => {
                               handleCategoryChange(category);
                               setShowFilters(false);
                             }}
-                            className="w-4 h-4 text-green-500 border-gray-300 focus:ring-green-500"
+                            className="w-4 h-4 text-red-500 border-gray-300 focus:ring-red-500"
                           />
                           <label
                             htmlFor={`mobile-category-${index}`}
@@ -537,7 +537,7 @@ const Gigs = () => {
                         <input
                           type="number"
                           placeholder="Min"
-                          className="w-full pl-7 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                          className="w-full pl-7 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                           value={filters.minPrice}
                           onChange={(e) => {
                             if (minRef.current)
@@ -552,7 +552,7 @@ const Gigs = () => {
                         <input
                           type="number"
                           placeholder="Max"
-                          className="w-full pl-7 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                          className="w-full pl-7 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                           value={filters.maxPrice}
                           onChange={(e) => {
                             if (maxRef.current)
@@ -573,7 +573,7 @@ const Gigs = () => {
                           onClick={() => toggleTag(tag)}
                           className={`text-sm px-3 py-1.5 rounded-full ${
                             filters.tags.includes(tag)
-                              ? "bg-green-500 text-white"
+                              ? "bg-red-500 text-white"
                               : "bg-gray-100 text-gray-700"
                           }`}
                         >
@@ -590,7 +590,7 @@ const Gigs = () => {
                         apply();
                         setShowFilters(false);
                       }}
-                      className="flex-1 py-3 bg-green-500 text-white font-medium rounded-md"
+                      className="flex-1 py-3 bg-red-500 text-white font-medium rounded-md"
                     >
                       Apply Filters
                     </button>

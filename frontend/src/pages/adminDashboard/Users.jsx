@@ -171,7 +171,7 @@
 //             <button
 //               className={`inline-flex items-center p-4 border-b-2 ${
 //                 activeView === "clients"
-//                   ? "text-green-600 border-green-600"
+//                   ? "text-red-600 border-red-600"
 //                   : "border-transparent hover:text-gray-600 hover:border-gray-300"
 //               }`}
 //               onClick={() => handleViewChange("clients")}
@@ -183,7 +183,7 @@
 //             <button
 //               className={`inline-flex items-center p-4 border-b-2 ${
 //                 activeView === "freelancers"
-//                   ? "text-green-600 border-green-600"
+//                   ? "text-red-600 border-red-600"
 //                   : "border-transparent hover:text-gray-600 hover:border-gray-300"
 //               }`}
 //               onClick={() => handleViewChange("freelancers")}
@@ -207,7 +207,7 @@
 //               placeholder={`Enter ${
 //                 activeView === "clients" ? "client" : "freelancer"
 //               } name`}
-//               className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400"
+//               className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400"
 //               value={nameFilter}
 //               onChange={(e) => setNameFilter(e.target.value)}
 //             />
@@ -222,7 +222,7 @@
 //               <input
 //                 type="email"
 //                 placeholder="Enter client email"
-//                 className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400"
+//                 className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400"
 //                 value={emailFilter}
 //                 onChange={(e) => setEmailFilter(e.target.value)}
 //               />
@@ -237,7 +237,7 @@
 //                   Skill
 //                 </label>
 //                 <select
-//                   className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400"
+//                   className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400"
 //                   value={skillFilter}
 //                   onChange={(e) => setSkillFilter(e.target.value)}
 //                 >
@@ -253,7 +253,7 @@
 //                   Rating
 //                 </label>
 //                 <select
-//                   className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400"
+//                   className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400"
 //                   value={ratingFilter}
 //                   onChange={(e) => setRatingFilter(e.target.value)}
 //                 >
@@ -540,7 +540,7 @@
 //             <div className="border-t px-4 py-2 flex justify-end">
 //               <button
 //                 onClick={() => setDetailsModalVisible(false)}
-//                 className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
+//                 className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
 //               >
 //                 Close
 //               </button>
@@ -924,7 +924,7 @@ const Users = () => {
             <button
               className={`inline-flex items-center p-4 border-b-2 ${
                 activeView === "clients"
-                  ? "text-green-600 border-green-600"
+                  ? "text-red-600 border-red-600"
                   : "border-transparent hover:text-gray-600 hover:border-gray-300"
               }`}
               onClick={() => handleViewChange("clients")}
@@ -936,7 +936,7 @@ const Users = () => {
             <button
               className={`inline-flex items-center p-4 border-b-2 ${
                 activeView === "freelancers"
-                  ? "text-green-600 border-green-600"
+                  ? "text-red-600 border-red-600"
                   : "border-transparent hover:text-gray-600 hover:border-gray-300"
               }`}
               onClick={() => handleViewChange("freelancers")}
@@ -960,7 +960,7 @@ const Users = () => {
               placeholder={`Enter ${
                 activeView === "clients" ? "client" : "freelancer"
               } name`}
-              className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400"
+              className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400"
               value={nameFilter}
               onChange={(e) => setNameFilter(e.target.value)}
             />
@@ -975,7 +975,7 @@ const Users = () => {
               <input
                 type="email"
                 placeholder="Enter client email"
-                className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400"
+                className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400"
                 value={emailFilter}
                 onChange={(e) => setEmailFilter(e.target.value)}
               />
@@ -990,7 +990,7 @@ const Users = () => {
                   Skill
                 </label>
                 <select
-                  className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400"
+                  className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400"
                   value={skillFilter}
                   onChange={(e) => setSkillFilter(e.target.value)}
                 >
@@ -1008,7 +1008,7 @@ const Users = () => {
                   Rating
                 </label>
                 <select
-                  className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400"
+                  className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400"
                   value={ratingFilter}
                   onChange={(e) => setRatingFilter(e.target.value)}
                 >
@@ -1027,7 +1027,7 @@ const Users = () => {
       {/* Loading State */}
       {loading && (
         <div className="flex justify-center items-center p-8">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-500"></div>
         </div>
       )}
 
@@ -1156,7 +1156,7 @@ const Users = () => {
                           onClick={() => handleStatusToggle(item)}
                           className={`px-3 py-1 rounded text-xs font-semibold ${
                             item.isActive
-                              ? "bg-green-100 text-green-700 hover:bg-green-200"
+                              ? "bg-red-100 text-red-700 hover:bg-red-200"
                               : "bg-red-100 text-red-700 hover:bg-red-200"
                           }`}
                         >
@@ -1301,7 +1301,7 @@ const Users = () => {
                       <h4 className="text-xs text-gray-500 uppercase">
                         Projects
                       </h4>
-                      <p className="font-semibold text-green-600">
+                      <p className="font-semibold text-red-600">
                         {selectedItem?.completedProjects}
                       </p>
                     </div>
@@ -1320,7 +1320,7 @@ const Users = () => {
                       <p
                         className={`font-semibold ${
                           selectedItem?.availability === "Available"
-                            ? "text-green-600"
+                            ? "text-red-600"
                             : "text-red-500"
                         }`}
                       >
@@ -1383,7 +1383,7 @@ const Users = () => {
             <div className="border-t px-4 py-3 flex justify-end">
               <button
                 onClick={() => setDetailsModalVisible(false)}
-                className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
+                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
               >
                 Close
               </button>

@@ -5,7 +5,7 @@ const NotFound = () => {
   return (
     <main className="min-h-[70vh] flex items-center justify-center bg-gray-100 px-6">
       <section className="text-center max-w-lg">
-        <p className="text-sm font-semibold uppercase tracking-wide text-green-600">
+        <p className="text-sm font-semibold uppercase tracking-wide text-red-600">
           404
         </p>
         <h1 className="mt-3 text-3xl font-bold text-gray-900">
@@ -16,7 +16,7 @@ const NotFound = () => {
         </p>
         <Link
           to="/"
-          className="mt-6 inline-flex items-center gap-2 rounded-md bg-green-600 px-4 py-2 text-white hover:bg-green-700"
+          className="mt-6 inline-flex items-center gap-2 rounded-md bg-red-600 px-4 py-2 text-white hover:bg-red-700"
         >
           <Home size={18} />
           Back home

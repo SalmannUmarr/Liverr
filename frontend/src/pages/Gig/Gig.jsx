@@ -321,7 +321,7 @@ function Gig() {
                 <button
                   className={`pb-4 px-2 ${
                     activeTab === "about"
-                      ? "border-b-2 border-[#1DBF73] text-[#1DBF73]"
+                      ? "border-b-2 border-[#dc2626] text-[#dc2626]"
                       : "text-[#74767E]"
                   }`}
                   onClick={() => setActiveTab("about")}
@@ -331,7 +331,7 @@ function Gig() {
                 <button
                   className={`pb-4 px-2 ${
                     activeTab === "reviews"
-                      ? "border-b-2 border-[#1DBF73] text-[#1DBF73]"
+                      ? "border-b-2 border-[#dc2626] text-[#dc2626]"
                       : "text-[#74767E]"
                   }`}
                   onClick={() => setActiveTab("reviews")}
@@ -392,7 +392,7 @@ function Gig() {
                         </span>
                         <span className="text-[#74767E]">({reviewsCount})</span>
                       </div>
-                      {/* <button className="border border-[#1DBF73] text-[#1DBF73] px-6 py-2 rounded-md hover:bg-[#1DBF73] hover:text-white transition-colors">
+                      {/* <button className="border border-[#dc2626] text-[#dc2626] px-6 py-2 rounded-md hover:bg-[#dc2626] hover:text-white transition-colors">
                         Contact Me
                       </button> */}
                     </div>
@@ -509,7 +509,7 @@ function Gig() {
                                 </div>
                               </div>
                               <div className="flex items-center gap-2">
-                                <Share2 className="w-5 h-5 text-[#74767E] cursor-pointer hover:text-[#1DBF73]" />
+                                <Share2 className="w-5 h-5 text-[#74767E] cursor-pointer hover:text-[#dc2626]" />
                                 <Flag className="w-5 h-5 text-[#74767E] cursor-pointer hover:text-red-500" />
                               </div>
                             </div>
@@ -534,12 +534,12 @@ function Gig() {
 
                             <div className="flex items-center gap-6 text-sm">
                               <span className="text-[#74767E]">Helpful?</span>
-                              <button className="flex items-center gap-2 text-[#74767E] hover:text-[#1DBF73]">
+                              <button className="flex items-center gap-2 text-[#74767E] hover:text-[#dc2626]">
                                 <ThumbsUp className="w-4 h-4" />
                                 <span>Yes</span>
                                 <span>({Math.floor(Math.random() * 30)})</span>
                               </button>
-                              <button className="flex items-center gap-2 text-[#74767E] hover:text-[#1DBF73]">
+                              <button className="flex items-center gap-2 text-[#74767E] hover:text-[#dc2626]">
                                 <ThumbsDown className="w-4 h-4" />
                                 <span>No</span>
                                 <span>({Math.floor(Math.random() * 5)})</span>
@@ -599,7 +599,7 @@ function Gig() {
                               </div>
                             </div>
                             <div className="flex items-center gap-2">
-                              <Share2 className="w-5 h-5 text-[#74767E] cursor-pointer hover:text-[#1DBF73]" />
+                              <Share2 className="w-5 h-5 text-[#74767E] cursor-pointer hover:text-[#dc2626]" />
                               <Flag className="w-5 h-5 text-[#74767E] cursor-pointer hover:text-red-500" />
                             </div>
                           </div>
@@ -619,12 +619,12 @@ function Gig() {
 
                           <div className="flex items-center gap-6 text-sm">
                             <span className="text-[#74767E]">Helpful?</span>
-                            <button className="flex items-center gap-2 text-[#74767E] hover:text-[#1DBF73]">
+                            <button className="flex items-center gap-2 text-[#74767E] hover:text-[#dc2626]">
                               <ThumbsUp className="w-4 h-4" />
                               <span>Yes</span>
                               <span>({review.helpful})</span>
                             </button>
-                            <button className="flex items-center gap-2 text-[#74767E] hover:text-[#1DBF73]">
+                            <button className="flex items-center gap-2 text-[#74767E] hover:text-[#dc2626]">
                               <ThumbsDown className="w-4 h-4" />
                               <span>No</span>
                               <span>({review.notHelpful})</span>
@@ -699,7 +699,7 @@ function Gig() {
                         key={index}
                         className="flex items-center gap-3 text-[#62646A]"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-[#1DBF73]" />
+                        <CheckCircle2 className="w-4 h-4 text-[#dc2626]" />
                         <span>{feature}</span>
                       </div>
                     ))}
@@ -712,13 +712,13 @@ function Gig() {
                   ) : (
                     <>
                       <button
-                        className="w-full bg-[#1DBF73] text-white py-3 rounded-md hover:bg-[#19a463] transition-colors font-medium"
+                        className="w-full bg-[#dc2626] text-white py-3 rounded-md hover:bg-[#19a463] transition-colors font-medium"
                         onClick={handleContinueClick}
                       >
                         Continue (${gigPrice})
                       </button>
                       <button
-                        className="w-full mt-3 border border-[#1DBF73] text-[#1DBF73] py-3 rounded-md hover:bg-[#F7F9FC] transition-colors font-medium"
+                        className="w-full mt-3 border border-[#dc2626] text-[#dc2626] py-3 rounded-md hover:bg-[#F7F9FC] transition-colors font-medium"
                         onClick={handleMessageClick}
                       >
                         Contact Seller
@@ -749,10 +749,10 @@ function Gig() {
               </h2>
 
               {orderSuccess ? (
-                <div className="bg-green-50 p-4 rounded-md mb-6">
+                <div className="bg-red-50 p-4 rounded-md mb-6">
                   <div className="flex items-center gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-green-600" />
-                    <p className="text-green-700 font-medium">
+                    <CheckCircle2 className="w-6 h-6 text-red-600" />
+                    <p className="text-red-700 font-medium">
                       Order placed successfully!
                     </p>
                   </div>
@@ -809,7 +809,7 @@ function Gig() {
                 </label>
                 <textarea
                   id="requirements"
-                  className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#1DBF73] resize-none"
+                  className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#dc2626] resize-none"
                   rows="5"
                   placeholder="Tell the seller what you need... Be specific about your project requirements."
                   value={requirementText}
@@ -818,7 +818,7 @@ function Gig() {
               </div>
               {/* Place order button */}
               <button
-                className={`w-full bg-[#1DBF73] text-white py-3 rounded-md hover:bg-[#19a463] transition-colors font-medium ${
+                className={`w-full bg-[#dc2626] text-white py-3 rounded-md hover:bg-[#19a463] transition-colors font-medium ${
                   orderLoading ? "opacity-70 cursor-not-allowed" : ""
                 }`}
                 onClick={handleOrderSubmit}

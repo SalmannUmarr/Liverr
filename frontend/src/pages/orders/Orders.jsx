@@ -246,7 +246,7 @@ const Orders = () => {
           <FontAwesomeIcon
             icon={faSpinner}
             spin
-            className="text-4xl text-green-500 mb-2"
+            className="text-4xl text-red-500 mb-2"
           />
           <p className="text-gray-600">Loading your orders...</p>
         </div>
@@ -290,14 +290,14 @@ const Orders = () => {
           <div className="flex justify-between items-center">
             <h1 className="text-3xl font-bold text-gray-800">Your Orders</h1>
             <div className="flex items-center">
-              <div className="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center mr-3">
-                <span className="font-bold text-green-600">
+              <div className="h-10 w-10 rounded-full bg-red-100 flex items-center justify-center mr-3">
+                <span className="font-bold text-red-600">
                   {currentUser.name?.charAt(0) || "U"}
                 </span>
               </div>
               <div>
                 <p className="font-medium text-gray-700">Welcome back,</p>
-                <p className="text-green-600 font-bold">{currentUser.name}</p>
+                <p className="text-red-600 font-bold">{currentUser.name}</p>
               </div>
             </div>
           </div>
@@ -356,7 +356,7 @@ const Orders = () => {
                     return (
                       <tr
                         key={order._id}
-                        className={`border-b text-lg hover:bg-green-50 transition-colors duration-150`}
+                        className={`border-b text-lg hover:bg-red-50 transition-colors duration-150`}
                       >
                         <td className="py-4 px-4">
                           <div className="w-16 h-12 rounded-md shadow-sm overflow-hidden">
@@ -373,7 +373,7 @@ const Orders = () => {
                         <td className="py-4 px-4 font-medium text-gray-800">
                           {order.gig_id?.title || "Untitled Gig"}
                         </td>
-                        <td className="py-4 px-4 text-green-600 font-semibold">
+                        <td className="py-4 px-4 text-red-600 font-semibold">
                           $
                           {order.total_amount?.toFixed(2) ||
                             order.gig_id?.price?.toFixed(2) ||
@@ -384,7 +384,7 @@ const Orders = () => {
                             className={`py-1 px-3 rounded-full text-sm font-medium
                             ${
                               order.status === "Completed"
-                                ? "bg-green-100 text-green-800"
+                                ? "bg-red-100 text-red-800"
                                 : order.status === "Cancelled"
                                 ? "bg-red-100 text-red-800"
                                 : "bg-yellow-100 text-yellow-800"
@@ -397,7 +397,7 @@ const Orders = () => {
                         <td className="py-4 px-4">
                           <button
                             onClick={() => openMessageModal(order)}
-                            className="bg-green-50 hover:bg-green-100 text-green-600 p-2 rounded-full transition-colors duration-150"
+                            className="bg-red-50 hover:bg-red-100 text-red-600 p-2 rounded-full transition-colors duration-150"
                             title="Contact"
                           >
                             <FontAwesomeIcon
@@ -421,7 +421,7 @@ const Orders = () => {
                             </button>
                           ) : order.status === "Completed" &&
                             order.hasReview ? (
-                            <span className="text-sm text-green-500 italic">
+                            <span className="text-sm text-red-500 italic">
                               Reviewed
                             </span>
                           ) : (
@@ -445,7 +445,7 @@ const Orders = () => {
                                           onClick={() =>
                                             openSubmitWorkModal(order._id)
                                           }
-                                          className="bg-green-600 hover:bg-green-700 text-white py-1 px-3 rounded-md flex items-center transition-colors duration-150"
+                                          className="bg-red-600 hover:bg-red-700 text-white py-1 px-3 rounded-md flex items-center transition-colors duration-150"
                                         >
                                           <FontAwesomeIcon
                                             icon={faCheckCircle}
@@ -571,7 +571,7 @@ const Orders = () => {
                     Work Description
                   </label>
                   <textarea
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                     rows={4}
                     placeholder="Describe what you're delivering..."
                     value={workDescription}
@@ -585,13 +585,13 @@ const Orders = () => {
                     Upload File
                   </label>
                   <div className="relative">
-                    <label className="flex items-center justify-center w-full h-32 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-green-500 focus:outline-none">
+                    <label className="flex items-center justify-center w-full h-32 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-red-500 focus:outline-none">
                       <span className="flex flex-col items-center space-y-2">
                         {selectedFile ? (
                           <>
                             <FontAwesomeIcon
                               icon={faCheckCircle}
-                              className="w-6 h-6 text-green-500"
+                              className="w-6 h-6 text-red-500"
                             />
                             <span className="font-medium text-gray-700">
                               {selectedFile.name} (
@@ -606,7 +606,7 @@ const Orders = () => {
                             />
                             <span className="font-medium text-gray-600">
                               Drop files to upload or{" "}
-                              <span className="text-green-600">browse</span>
+                              <span className="text-red-600">browse</span>
                             </span>
                           </>
                         )}
@@ -642,7 +642,7 @@ const Orders = () => {
                   className={`${
                     uploadingFile
                       ? "bg-gray-300 cursor-not-allowed"
-                      : "bg-green-600 hover:bg-green-700"
+                      : "bg-red-600 hover:bg-red-700"
                   } text-white px-4 py-2 text-sm font-medium rounded-md flex items-center transition-colors duration-150`}
                 >
                   {uploadingFile ? (

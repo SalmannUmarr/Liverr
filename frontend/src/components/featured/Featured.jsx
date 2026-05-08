@@ -4,7 +4,7 @@
 
 // const Featured = () => {
 //   return (
-//     <div className="h-[600px] flex justify-center bg-green-900 text-white">
+//     <div className="h-[600px] flex justify-center bg-red-900 text-white">
 //       <div className="max-w-[1400px] flex items-center w-full px-6">
 //         {/* Left Section */}
 //         <div className="flex flex-col gap-6">
@@ -22,7 +22,7 @@
 //                 className="border-none outline-none text-black placeholder-gray-500"
 //               />
 //             </div>
-//             <button className="w-32 h-12 bg-green-500 text-white font-semibold hover:bg-green-600 transition">
+//             <button className="w-32 h-12 bg-red-500 text-white font-semibold hover:bg-red-600 transition">
 //               Search
 //             </button>
 //           </div>
@@ -33,7 +33,7 @@
 //             {["Web Design", "WordPress", "Logo Design", "AI Services"].map((item) => (
 //               <button
 //                 key={item}
-//                 className="border border-white px-4 py-2 rounded-full bg-transparent text-sm hover:bg-white hover:text-green-900 transition"
+//                 className="border border-white px-4 py-2 rounded-full bg-transparent text-sm hover:bg-white hover:text-red-900 transition"
 //               >
 //                 {item}
 //               </button>
@@ -104,13 +104,13 @@
 //   }, []);
 
 //   return (
-//     <div className="relative h-[650px] flex justify-center bg-gradient-to-r from-green-900 to-green-800 text-white overflow-hidden">
+//     <div className="relative h-[650px] flex justify-center bg-gradient-to-r from-red-900 to-red-800 text-white overflow-hidden">
 //       {/* Background animated shapes */}
 //       <div className="absolute inset-0 overflow-hidden">
 //         {[...Array(5)].map((_, i) => (
 //           <motion.div
 //             key={i}
-//             className="absolute rounded-full bg-green-700 opacity-10"
+//             className="absolute rounded-full bg-red-700 opacity-10"
 //             style={{
 //               width: Math.random() * 300 + 100,
 //               height: Math.random() * 300 + 100,
@@ -145,7 +145,7 @@
 //             transition={{ delay: 0.3, duration: 0.8 }}
 //           >
 //             Find the perfect <motion.span 
-//               className="font-light italic bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-blue-300"
+//               className="font-light italic bg-clip-text text-transparent bg-gradient-to-r from-red-300 to-blue-300"
 //               animate={{ 
 //                 scale: [1, 1.05, 1],
 //               }}
@@ -160,7 +160,7 @@
 //           </motion.h1>
           
 //           <motion.p 
-//             className="text-xl text-green-100"
+//             className="text-xl text-red-100"
 //             initial={{ opacity: 0 }}
 //             animate={{ opacity: 1 }}
 //             transition={{ delay: 0.6, duration: 0.8 }}
@@ -170,7 +170,7 @@
           
 //           {/* Search Box */}
 //           <motion.div 
-//             className="bg-white rounded-lg flex items-center justify-between overflow-hidden shadow-2xl border-2 border-transparent focus-within:border-green-400 transition-all duration-300"
+//             className="bg-white rounded-lg flex items-center justify-between overflow-hidden shadow-2xl border-2 border-transparent focus-within:border-red-400 transition-all duration-300"
 //             initial={{ opacity: 0, width: "90%" }}
 //             animate={{ opacity: 1, width: "100%" }}
 //             transition={{ delay: 0.9, duration: 0.8 }}
@@ -184,7 +184,7 @@
 //                 className="border-none outline-none text-black placeholder-gray-500 w-full text-lg"
 //               />
 //             </div>
-//             <button className="w-36 h-14 bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 text-lg">
+//             <button className="w-36 h-14 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-300 text-lg">
 //               Search
 //             </button>
 //           </motion.div>
@@ -203,7 +203,7 @@
 //                 key={item}
 //               >
 //                 <motion.button
-//                   className="border border-white px-4 py-2 rounded-full bg-transparent text-sm hover:bg-white hover:text-green-900 transition-all duration-300"
+//                   className="border border-white px-4 py-2 rounded-full bg-transparent text-sm hover:bg-white hover:text-red-900 transition-all duration-300"
 //                   whileHover={{ scale: 1.05, backgroundColor: "white", color: "#065f46" }}
 //                   initial={{ opacity: 0, y: 20 }}
 //                   animate={{ opacity: 1, y: 0 }}
@@ -223,7 +223,7 @@
 //           animate={{ opacity: 1, x: 0 }}
 //           transition={{ delay: 0.5, duration: 1 }}
 //         >
-//           <div className="absolute -top-10 -right-10 w-80 h-80 rounded-full bg-gradient-to-br from-green-400 to-blue-400 opacity-20 blur-xl"></div>
+//           <div className="absolute -top-10 -right-10 w-80 h-80 rounded-full bg-gradient-to-br from-red-400 to-blue-400 opacity-20 blur-xl"></div>
 //           <motion.img 
 //             src="./img/man.png" 
 //             alt="Freelancer" 
@@ -297,14 +297,14 @@ const Featured = () => {
   };
 
   return (
-    <div className="relative h-[650px] flex justify-center bg-gradient-to-r from-green-900 to-green-800 text-white overflow-hidden">
+    <div className="relative h-[650px] flex justify-center bg-gradient-to-r from-red-900 to-red-800 text-white overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Animated bubbles */}
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-green-700 opacity-10"
+            className="absolute rounded-full bg-red-700 opacity-10"
             style={{
               width: Math.random() * 300 + 100,
               height: Math.random() * 300 + 100,
@@ -329,7 +329,7 @@ const Featured = () => {
 
         {/* Fun geometric shapes */}
         <motion.div 
-          className="absolute top-20 left-20 w-32 h-32 border-4 border-green-500 opacity-20 rotate-45"
+          className="absolute top-20 left-20 w-32 h-32 border-4 border-red-500 opacity-20 rotate-45"
           animate={{
             rotate: [45, 90, 45],
             scale: [1, 1.2, 1],
@@ -398,7 +398,7 @@ const Featured = () => {
               amazing
             </motion.span>
             <motion.span 
-              className="font-light italic bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-blue-300 relative"
+              className="font-light italic bg-clip-text text-transparent bg-gradient-to-r from-red-300 to-blue-300 relative"
               animate={{ 
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
               }}
@@ -426,7 +426,7 @@ const Featured = () => {
           </motion.h1>
           
           <motion.p 
-            className="text-xl text-green-100 max-w-2xl"
+            className="text-xl text-red-100 max-w-2xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
@@ -459,7 +459,7 @@ const Featured = () => {
             {[
               {name: "Web Design", icon: "🎨", color: "from-pink-400 to-purple-500"},
               {name: "Mobile Apps", icon: "📱", color: "from-blue-400 to-indigo-500"},
-              {name: "AI Services", icon: "🤖", color: "from-green-400 to-teal-500"}
+              {name: "AI Services", icon: "🤖", color: "from-red-400 to-rose-500"}
             ].map((category, index) => (
               <motion.div 
                 key={index}
@@ -496,7 +496,7 @@ const Featured = () => {
           >
             <Link to="/gigs">
               <motion.button
-                className="px-8 py-4 bg-gradient-to-r from-green-500 to-blue-500 rounded-full text-white font-bold text-lg shadow-xl relative overflow-hidden group"
+                className="px-8 py-4 bg-gradient-to-r from-red-500 to-blue-500 rounded-full text-white font-bold text-lg shadow-xl relative overflow-hidden group"
                 whileHover={{ 
                   scale: 1.05,
                   boxShadow: "0 0 25px rgba(74, 222, 128, 0.6)"
@@ -555,12 +555,12 @@ const Featured = () => {
                 {...floatAnimation}
               >
                 <motion.div 
-                  className="w-8 h-8 rounded-full bg-green-200 flex items-center justify-center text-green-800 text-lg shadow-md"
+                  className="w-8 h-8 rounded-full bg-red-200 flex items-center justify-center text-red-800 text-lg shadow-md"
                   {...pulseAnimation}
                 >
                   {badge.icon}
                 </motion.div>
-                <span className="text-green-100">{badge.text}</span>
+                <span className="text-red-100">{badge.text}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -574,7 +574,7 @@ const Featured = () => {
           transition={{ delay: 0.5, duration: 1 }}
         >
           <motion.div 
-            className="absolute -top-10 -right-10 w-80 h-80 rounded-full bg-gradient-to-br from-green-400 to-blue-400 opacity-20 blur-xl"
+            className="absolute -top-10 -right-10 w-80 h-80 rounded-full bg-gradient-to-br from-red-400 to-blue-400 opacity-20 blur-xl"
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.2, 0.3, 0.2],

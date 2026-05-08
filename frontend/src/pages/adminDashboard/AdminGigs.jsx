@@ -92,7 +92,7 @@
 //               <input
 //                 type="text"
 //                 placeholder="Enter gig title"
-//                 className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400 pr-8"
+//                 className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400 pr-8"
 //                 value={searchTitle}
 //                 onChange={(e) => setSearchTitle(e.target.value)}
 //               />
@@ -106,7 +106,7 @@
 //               Category
 //             </label>
 //             <select
-//               className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400"
+//               className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400"
 //               value={selectedCategory}
 //               onChange={(e) => setSelectedCategory(e.target.value)}
 //             >
@@ -128,7 +128,7 @@
 //               Rating
 //             </label>
 //             <select
-//               className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400"
+//               className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400"
 //               value={selectedRating}
 //               onChange={(e) => setSelectedRating(e.target.value)}
 //             >
@@ -145,7 +145,7 @@
 //       {/* Loading, Error, and Empty States */}
 //       {loading && (
 //         <div className="text-center py-8">
-//           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500 mx-auto"></div>
+//           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-500 mx-auto"></div>
 //           <p className="mt-2 text-gray-600">Loading gigs...</p>
 //         </div>
 //       )}
@@ -315,13 +315,13 @@ const AdminGigs = () => {
         <button
           className={`py-3 px-6 font-medium ${
             activeTab === "approved"
-              ? "text-green-600 border-b-2 border-green-600"
-              : "text-gray-600 hover:text-green-600"
+              ? "text-red-600 border-b-2 border-red-600"
+              : "text-gray-600 hover:text-red-600"
           }`}
           onClick={() => setActiveTab("approved")}
         >
           Approved Gigs
-          <span className="ml-2 bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">
+          <span className="ml-2 bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded">
             {gigs.filter(gig => gig.isApproved).length}
           </span>
         </button>
@@ -352,7 +352,7 @@ const AdminGigs = () => {
               <input
                 type="text"
                 placeholder="Enter gig title"
-                className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400 pr-8"
+                className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400 pr-8"
                 value={searchTitle}
                 onChange={(e) => setSearchTitle(e.target.value)}
               />
@@ -366,7 +366,7 @@ const AdminGigs = () => {
               Category
             </label>
             <select
-              className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400"
+              className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400"
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
             >
@@ -388,7 +388,7 @@ const AdminGigs = () => {
               Rating
             </label>
             <select
-              className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-green-400"
+              className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-400"
               value={selectedRating}
               onChange={(e) => setSelectedRating(e.target.value)}
             >
@@ -420,7 +420,7 @@ const AdminGigs = () => {
       {/* Loading, Error, and Empty States */}
       {loading && (
         <div className="text-center py-8">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500 mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-500 mx-auto"></div>
           <p className="mt-2 text-gray-600">Loading gigs...</p>
         </div>
       )}
@@ -476,7 +476,7 @@ const AdminGigs = () => {
                     <div className="mb-4">
                       <div className="flex items-center text-sm">
                         <span className="font-medium">Price:</span>
-                        <span className="ml-2 text-green-600 font-bold">${gig.price}</span>
+                        <span className="ml-2 text-red-600 font-bold">${gig.price}</span>
                       </div>
                       <div className="flex items-center text-sm mt-1">
                         <span className="font-medium">Delivery:</span>
@@ -501,7 +501,7 @@ const AdminGigs = () => {
                       <button
                         onClick={() => handleApproveGig(gig._id)}
                         disabled={processingGigId === gig._id}
-                        className="flex-1 bg-green-500 hover:bg-green-600 text-white py-2 rounded font-medium flex items-center justify-center"
+                        className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded font-medium flex items-center justify-center"
                       >
                         {processingGigId === gig._id ? (
                           <div className="animate-spin h-4 w-4 border-2 border-white rounded-full border-t-transparent"></div>

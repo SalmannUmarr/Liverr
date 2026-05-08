@@ -69,10 +69,10 @@ const AdminSidebar = ({ collapsed, toggleSidebar, setActiveView }) => {
     >
       {/* Top Bar of the Sidebar with Admin label and Toggle Button */}
       <div className="p-4 border-b flex items-center justify-between">
-        {!collapsed && <p className="text-2xl font-bold text-green-500">Admin</p>}
+        {!collapsed && <p className="text-2xl font-bold text-red-500">Admin</p>}
         <button
           onClick={toggleSidebar}
-          className="bg-gradient-to-r from-green-500 to-green-600 text-white w-10 h-10 rounded-full shadow-lg hover:shadow-xl focus:outline-none flex items-center justify-center transform transition-transform duration-300"
+          className="bg-gradient-to-r from-red-500 to-red-600 text-white w-10 h-10 rounded-full shadow-lg hover:shadow-xl focus:outline-none flex items-center justify-center transform transition-transform duration-300"
         >
           {collapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
         </button>
@@ -89,7 +89,7 @@ const AdminSidebar = ({ collapsed, toggleSidebar, setActiveView }) => {
             }`}
             onClick={item.action ? item.action : undefined}
           >
-            <span className={`text-green-500 ${collapsed ? '' : 'mr-3'}`}>
+            <span className={`text-red-500 ${collapsed ? '' : 'mr-3'}`}>
               {item.icon}
             </span>
             {!collapsed && <span>{item.label}</span>}

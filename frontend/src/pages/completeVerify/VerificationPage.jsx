@@ -216,7 +216,7 @@
 //             <div key={num} className="flex flex-col items-center" style={{ width: `${100 / array.length}%` }}>
 //               <div
 //                 className={`w-10 h-10 flex items-center justify-center rounded-full font-bold transition-all duration-300 ${
-//                   step >= num ? "bg-green-500 text-white" : "bg-gray-300 text-gray-700"
+//                   step >= num ? "bg-red-500 text-white" : "bg-gray-300 text-gray-700"
 //                 }`}
 //               >
 //                 {num}
@@ -224,7 +224,7 @@
 //               {index < array.length - 1 && (
 //                 <div
 //                   className={`h-1 w-full progress-bar ${
-//                     step > num ? "bg-green-500" : "bg-gray-300"
+//                     step > num ? "bg-red-500" : "bg-gray-300"
 //                   }`}
 //                 ></div>
 //               )}
@@ -255,11 +255,11 @@
 //                   <img
 //                     src={profilePhoto}
 //                     alt="Preview"
-//                     className="w-24 h-24 rounded-full object-cover border-2 border-green-500 shadow-md"
+//                     className="w-24 h-24 rounded-full object-cover border-2 border-red-500 shadow-md"
 //                   />
 //                   <label
 //                     htmlFor="fileInput"
-//                     className="absolute bottom-0 right-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center cursor-pointer shadow-lg hover:bg-green-600 transition-colors"
+//                     className="absolute bottom-0 right-0 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center cursor-pointer shadow-lg hover:bg-red-600 transition-colors"
 //                   >
 //                     <Plus className="w-4 h-4 text-white" />
 //                   </label>
@@ -267,9 +267,9 @@
 //               ) : (
 //                 <label
 //                   htmlFor="fileInput"
-//                   className="w-24 h-24 rounded-full border-2 border-dashed border-green-500 flex items-center justify-center cursor-pointer hover:bg-green-50 transition-colors"
+//                   className="w-24 h-24 rounded-full border-2 border-dashed border-red-500 flex items-center justify-center cursor-pointer hover:bg-red-50 transition-colors"
 //                 >
-//                   <Plus className="w-8 h-8 text-green-500" />
+//                   <Plus className="w-8 h-8 text-red-500" />
 //                 </label>
 //               )}
 //             </div>
@@ -282,7 +282,7 @@
 //               <input
 //                 type="text"
 //                 placeholder="First Name *"
-//                 className="w-full p-3 border rounded-lg focus:ring focus:ring-green-300"
+//                 className="w-full p-3 border rounded-lg focus:ring focus:ring-red-300"
 //                 value={firstName}
 //                 onChange={(e) => setFirstName(e.target.value)}
 //                 required
@@ -295,7 +295,7 @@
 //               <input
 //                 type="text"
 //                 placeholder="Last Name *"
-//                 className="w-full p-3 border rounded-lg focus:ring focus:ring-green-300"
+//                 className="w-full p-3 border rounded-lg focus:ring focus:ring-red-300"
 //                 value={lastName}
 //                 onChange={(e) => setLastName(e.target.value)}
 //                 required
@@ -306,7 +306,7 @@
 //             </div>
 //             <div>
 //               <select
-//                 className="w-full p-3 border rounded-lg focus:ring focus:ring-green-300"
+//                 className="w-full p-3 border rounded-lg focus:ring focus:ring-red-300"
 //                 value={country}
 //                 onChange={(e) => setCountry(e.target.value)}
 //                 required
@@ -331,7 +331,7 @@
 //               <input
 //                 type="text"
 //                 placeholder="CNIC No *"
-//                 className="w-full p-3 border rounded-lg focus:ring focus:ring-green-300"
+//                 className="w-full p-3 border rounded-lg focus:ring focus:ring-red-300"
 //                 value={cnic}
 //                 onChange={(e) => setCnic(e.target.value)}
 //                 required
@@ -514,7 +514,7 @@
 //               <input
 //                 type="password"
 //                 placeholder="Password *"
-//                 className="w-full p-3 border rounded-lg focus:ring focus:ring-green-300"
+//                 className="w-full p-3 border rounded-lg focus:ring focus:ring-red-300"
 //                 value={password}
 //                 onChange={(e) => setPassword(e.target.value)}
 //                 required
@@ -527,7 +527,7 @@
 //               <input
 //                 type="password"
 //                 placeholder="Confirm Password *"
-//                 className="w-full p-3 border rounded-lg focus:ring focus:ring-green-300"
+//                 className="w-full p-3 border rounded-lg focus:ring focus:ring-red-300"
 //                 value={confirmPassword}
 //                 onChange={(e) => setConfirmPassword(e.target.value)}
 //                 required
@@ -563,7 +563,7 @@
 //           onClick={handlePrev}
 //           disabled={step === 1}
 //           className={`px-6 py-3 rounded-lg font-semibold transition ${
-//             step === 1 ? "bg-gray-400 cursor-not-allowed" : "bg-green-400 hover:bg-green-500 text-white"
+//             step === 1 ? "bg-gray-400 cursor-not-allowed" : "bg-red-400 hover:bg-red-500 text-white"
 //           }`}
 //         >
 //            Back
@@ -575,7 +575,7 @@
 //           className={`px-6 py-3 rounded-lg font-semibold transition ${
 //             isLoading || !isCurrentStepValid()
 //               ? "bg-gray-400 cursor-not-allowed"
-//               : "bg-green-500 hover:bg-green-600 text-white"
+//               : "bg-red-500 hover:bg-red-600 text-white"
 //           }`}
 //         >
 //           {isLoading ? "Processing..." : ((isSeller && step === 3) || (!isSeller && step === 2) ? "Submit" : "Next")}
@@ -934,7 +934,7 @@ const VerificationPage = () => {
               <div
                 className={`w-10 h-10 flex items-center justify-center rounded-full font-bold transition-all duration-300 ${
                   step >= num
-                    ? "bg-green-500 text-white"
+                    ? "bg-red-500 text-white"
                     : "bg-gray-300 text-gray-700"
                 }`}
               >
@@ -943,7 +943,7 @@ const VerificationPage = () => {
               {index < array.length - 1 && (
                 <div
                   className={`h-1 w-full progress-bar ${
-                    step > num ? "bg-green-500" : "bg-gray-300"
+                    step > num ? "bg-red-500" : "bg-gray-300"
                   }`}
                 ></div>
               )}
@@ -985,11 +985,11 @@ const VerificationPage = () => {
                   <img
                     src={profilePhoto}
                     alt="Preview"
-                    className="w-24 h-24 rounded-full object-cover border-2 border-green-500 shadow-md"
+                    className="w-24 h-24 rounded-full object-cover border-2 border-red-500 shadow-md"
                   />
                   <label
                     htmlFor="fileInput"
-                    className="absolute bottom-0 right-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center cursor-pointer shadow-lg hover:bg-green-600 transition-colors"
+                    className="absolute bottom-0 right-0 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center cursor-pointer shadow-lg hover:bg-red-600 transition-colors"
                   >
                     <Plus className="w-4 h-4 text-white" />
                   </label>
@@ -997,9 +997,9 @@ const VerificationPage = () => {
               ) : (
                 <label
                   htmlFor="fileInput"
-                  className="w-24 h-24 rounded-full border-2 border-dashed border-green-500 flex items-center justify-center cursor-pointer hover:bg-green-50 transition-colors"
+                  className="w-24 h-24 rounded-full border-2 border-dashed border-red-500 flex items-center justify-center cursor-pointer hover:bg-red-50 transition-colors"
                 >
-                  <Plus className="w-8 h-8 text-green-500" />
+                  <Plus className="w-8 h-8 text-red-500" />
                 </label>
               )}
             </div>
@@ -1014,7 +1014,7 @@ const VerificationPage = () => {
               <input
                 type="text"
                 placeholder="First Name *"
-                className="w-full p-3 border rounded-lg focus:ring focus:ring-green-300"
+                className="w-full p-3 border rounded-lg focus:ring focus:ring-red-300"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 required
@@ -1029,7 +1029,7 @@ const VerificationPage = () => {
               <input
                 type="text"
                 placeholder="Last Name *"
-                className="w-full p-3 border rounded-lg focus:ring focus:ring-green-300"
+                className="w-full p-3 border rounded-lg focus:ring focus:ring-red-300"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 required
@@ -1042,7 +1042,7 @@ const VerificationPage = () => {
             </div>
             <div>
               <select
-                className="w-full p-3 border rounded-lg focus:ring focus:ring-green-300"
+                className="w-full p-3 border rounded-lg focus:ring focus:ring-red-300"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
                 required
@@ -1069,7 +1069,7 @@ const VerificationPage = () => {
               <input
                 type="text"
                 placeholder="CNIC No *"
-                className="w-full p-3 border rounded-lg focus:ring focus:ring-green-300"
+                className="w-full p-3 border rounded-lg focus:ring focus:ring-red-300"
                 value={cnic}
                 onChange={(e) => setCnic(e.target.value)}
                 required
@@ -1272,7 +1272,7 @@ const VerificationPage = () => {
               <input
                 type="password"
                 placeholder="Password *"
-                className="w-full p-3 border rounded-lg focus:ring focus:ring-green-300"
+                className="w-full p-3 border rounded-lg focus:ring focus:ring-red-300"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -1287,7 +1287,7 @@ const VerificationPage = () => {
               <input
                 type="password"
                 placeholder="Confirm Password *"
-                className="w-full p-3 border rounded-lg focus:ring focus:ring-green-300"
+                className="w-full p-3 border rounded-lg focus:ring focus:ring-red-300"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
@@ -1335,7 +1335,7 @@ const VerificationPage = () => {
           className={`px-6 py-3 rounded-lg font-semibold transition ${
             step === 1
               ? "bg-gray-400 cursor-not-allowed"
-              : "bg-green-400 hover:bg-green-500 text-white"
+              : "bg-red-400 hover:bg-red-500 text-white"
           }`}
         >
           Back
@@ -1347,7 +1347,7 @@ const VerificationPage = () => {
           className={`px-6 py-3 rounded-lg font-semibold transition ${
             isLoading || !isCurrentStepValid()
               ? "bg-gray-400 cursor-not-allowed"
-              : "bg-green-500 hover:bg-green-600 text-white"
+              : "bg-red-500 hover:bg-red-600 text-white"
           }`}
         >
           {isLoading

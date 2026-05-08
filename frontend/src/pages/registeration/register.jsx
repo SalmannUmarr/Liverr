@@ -94,16 +94,16 @@
 //                 <h2 className="text-2xl font-bold mb-6">Success starts here</h2>
 //                 <ul className="mt-3 space-y-2">
 //                   <li className="flex items-center">
-//                     <span className="text-green-400 mr-2">✔</span> Find top freelancers worldwide
+//                     <span className="text-red-400 mr-2">✔</span> Find top freelancers worldwide
 //                   </li>
 //                   <li className="flex items-center">
-//                     <span className="text-green-400 mr-2">✔</span> Get quality work done fast
+//                     <span className="text-red-400 mr-2">✔</span> Get quality work done fast
 //                   </li>
 //                   <li className="flex items-center">
-//                     <span className="text-green-400 mr-2">✔</span> Secure payments & easy collaboration
+//                     <span className="text-red-400 mr-2">✔</span> Secure payments & easy collaboration
 //                   </li>
 //                   <li className="flex items-center">
-//                     <span className="text-green-400 mr-2">✔</span> Scale your business effortlessly
+//                     <span className="text-red-400 mr-2">✔</span> Scale your business effortlessly
 //                   </li>
 //                 </ul>
 //               </div>
@@ -126,7 +126,7 @@
 //                 </a>
 //               </p>
 //               {error && <p className="text-red-500 mb-4">{error}</p>}
-//               {success && <p className="text-green-500 mb-4">{success}</p>}
+//               {success && <p className="text-red-500 mb-4">{success}</p>}
               
 //               <form onSubmit={(e) => handleSubmit(e, "login")}>
 //                 <div className="mb-4">
@@ -171,16 +171,16 @@
 //                 <h2 className="text-2xl font-bold mb-6">Join the best freelancing platform</h2>
 //                 <ul className="mt-3 space-y-2">
 //                   <li className="flex items-center">
-//                     <span className="text-green-400 mr-2">✔</span> Work with trusted clients
+//                     <span className="text-red-400 mr-2">✔</span> Work with trusted clients
 //                   </li>
 //                   <li className="flex items-center">
-//                     <span className="text-green-400 mr-2">✔</span> Get paid securely & on time
+//                     <span className="text-red-400 mr-2">✔</span> Get paid securely & on time
 //                   </li>
 //                   <li className="flex items-center">
-//                     <span className="text-green-400 mr-2">✔</span> Showcase your talent to the world
+//                     <span className="text-red-400 mr-2">✔</span> Showcase your talent to the world
 //                   </li>
 //                   <li className="flex items-center">
-//                     <span className="text-green-400 mr-2">✔</span> Join a community of professionals
+//                     <span className="text-red-400 mr-2">✔</span> Join a community of professionals
 //                   </li>
 //                 </ul>
 //               </div>
@@ -203,7 +203,7 @@
 //                 </a>
 //               </p>
 //               {error && <p className="text-red-500 mb-4">{error}</p>}
-//               {success && <p className="text-green-500 mb-4">{success}</p>}
+//               {success && <p className="text-red-500 mb-4">{success}</p>}
               
 //               <form onSubmit={(e) => handleSubmit(e, "signup")}>
 //                 <div className="mb-4">
@@ -397,16 +397,16 @@ const Register = () => {
                 <h2 className="text-2xl font-bold mb-6">Success starts here</h2>
                 <ul className="mt-3 space-y-2">
                   <li className="flex items-center">
-                    <span className="text-green-400 mr-2">✔</span> Find top freelancers worldwide
+                    <span className="text-red-400 mr-2">✔</span> Find top freelancers worldwide
                   </li>
                   <li className="flex items-center">
-                    <span className="text-green-400 mr-2">✔</span> Get quality work done fast
+                    <span className="text-red-400 mr-2">✔</span> Get quality work done fast
                   </li>
                   <li className="flex items-center">
-                    <span className="text-green-400 mr-2">✔</span> Secure payments & easy collaboration
+                    <span className="text-red-400 mr-2">✔</span> Secure payments & easy collaboration
                   </li>
                   <li className="flex items-center">
-                    <span className="text-green-400 mr-2">✔</span> Scale your business effortlessly
+                    <span className="text-red-400 mr-2">✔</span> Scale your business effortlessly
                   </li>
                 </ul>
               </div>
@@ -433,7 +433,7 @@ const Register = () => {
                 </p>
               )}
               {error && <p className="text-red-500 mb-4">{error}</p>}
-              {success && <p className="text-green-500 mb-4">{success}</p>}
+              {success && <p className="text-red-500 mb-4">{success}</p>}
               
               {passwordMode === "login" && (
                 <form onSubmit={(e) => handleSubmit(e, "login")}>
@@ -548,16 +548,16 @@ const Register = () => {
                 <h2 className="text-2xl font-bold mb-6">Join the best freelancing platform</h2>
                 <ul className="mt-3 space-y-2">
                   <li className="flex items-center">
-                    <span className="text-green-400 mr-2">✔</span> Work with trusted clients
+                    <span className="text-red-400 mr-2">✔</span> Work with trusted clients
                   </li>
                   <li className="flex items-center">
-                    <span className="text-green-400 mr-2">✔</span> Get paid securely & on time
+                    <span className="text-red-400 mr-2">✔</span> Get paid securely & on time
                   </li>
                   <li className="flex items-center">
-                    <span className="text-green-400 mr-2">✔</span> Showcase your talent to the world
+                    <span className="text-red-400 mr-2">✔</span> Showcase your talent to the world
                   </li>
                   <li className="flex items-center">
-                    <span className="text-green-400 mr-2">✔</span> Join a community of professionals
+                    <span className="text-red-400 mr-2">✔</span> Join a community of professionals
                   </li>
                 </ul>
               </div>
@@ -580,7 +580,7 @@ const Register = () => {
                 </a>
               </p>
               {error && <p className="text-red-500 mb-4">{error}</p>}
-              {success && <p className="text-green-500 mb-4">{success}</p>}
+              {success && <p className="text-red-500 mb-4">{success}</p>}
               
               <form onSubmit={(e) => handleSubmit(e, "signup")}>
                 <div className="mb-4">
