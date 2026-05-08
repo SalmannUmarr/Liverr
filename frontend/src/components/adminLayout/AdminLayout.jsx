@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Outlet, useOutletContext } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import AdminSidebar from "../adminSidebar/AdminSidebar";
+import Footer from "../footer/Footer";
 
 const AdminLayout = () => {
   // State for sidebar collapse
@@ -29,6 +30,7 @@ const AdminLayout = () => {
         }`}
       >
         <Outlet context={{ activeView }} />
+        <Footer />
       </div>
     </div>
   );

@@ -25,6 +25,7 @@ import Users from "./pages/adminDashboard/Users";
 import AdminLayout from "./components/adminLayout/AdminLayout";
 import ManageOrders from "./pages/adminDashboard/Orders";
 import AdminGigs from "./pages/adminDashboard/AdminGigs";
+import NotFound from "./pages/notFound/NotFound";
 
 // Get current user from localStorage
 const getCurrentUser = () => {
@@ -171,6 +172,16 @@ const App = () => {
                 <Footer />
               </>
             </GuestRoute>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <>
+              <CustomNavbar />
+              <NotFound />
+              <Footer />
+            </>
           }
         />
       </Routes>
