@@ -27,36 +27,84 @@ const demoUsers = [
     email: "admin@liverr.demo",
     role: "admin",
     verified: true,
+    full_verification: [
+      {
+        full_name: "Liverr Admin",
+        profile_pic: "https://ui-avatars.com/api/?name=Liverr+Admin&background=991b1b&color=ffffff",
+        country: "Pakistan",
+        cnic: "00000-0000000-0",
+      },
+    ],
   },
   {
     username: "amna_client",
     email: "client@liverr.demo",
     role: "client",
     verified: true,
+    full_verification: [
+      {
+        full_name: "Amna Khan",
+        profile_pic: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300",
+        country: "Pakistan",
+        cnic: "11111-1111111-1",
+      },
+    ],
   },
   {
     username: "hamza_startup",
     email: "startup@liverr.demo",
     role: "client",
     verified: true,
+    full_verification: [
+      {
+        full_name: "Hamza Rauf",
+        profile_pic: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300",
+        country: "Pakistan",
+        cnic: "22222-2222222-2",
+      },
+    ],
   },
   {
     username: "zara_designs",
     email: "designer@liverr.demo",
     role: "freelancer",
     verified: true,
+    full_verification: [
+      {
+        full_name: "Zara Designs",
+        profile_pic: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=300",
+        country: "Pakistan",
+        cnic: "33333-3333333-3",
+      },
+    ],
   },
   {
     username: "ali_codes",
     email: "developer@liverr.demo",
     role: "freelancer",
     verified: true,
+    full_verification: [
+      {
+        full_name: "Ali Codes",
+        profile_pic: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=300",
+        country: "Pakistan",
+        cnic: "44444-4444444-4",
+      },
+    ],
   },
   {
     username: "sana_growth",
     email: "marketer@liverr.demo",
     role: "freelancer",
     verified: true,
+    full_verification: [
+      {
+        full_name: "Sana Growth",
+        profile_pic: "https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg?auto=compress&cs=tinysrgb&w=300",
+        country: "Pakistan",
+        cnic: "55555-5555555-5",
+      },
+    ],
   },
 ];
 

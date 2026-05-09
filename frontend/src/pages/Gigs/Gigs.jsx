@@ -20,6 +20,11 @@ const Gigs = () => {
   const [error, setError] = useState(null);
   const [showFilters, setShowFilters] = useState(false);
   const [categories, setCategories] = useState([
+    "Design",
+    "Programming",
+    "Marketing",
+    "Writing",
+    "Video",
     "Web Development",
     "Machine Learning",
     "Graphic Design",
@@ -114,20 +119,22 @@ const Gigs = () => {
           fetchedGigs = fetchedGigs.filter((gig) => {
             // Check if the gig has all the selected tags
             return filters.tags.every(
-              (tag) => gig.tags && gig.tags.includes(tag)
+              (tag) => gig.gig_tags && gig.gig_tags.includes(tag)
             );
           });
         }
 
         // Sort the results based on current sort preference
         if (sort === "sales") {
-          fetchedGigs.sort((a, b) => b.sales - a.sales);
+          fetchedGigs.sort((a, b) => (b.sales || 0) - (a.sales || 0));
         } else if (sort === "createdAt") {
           fetchedGigs.sort(
-            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+            (a, b) =>
+              new Date(b.createdAt || b.created_at || b.updated_at || 0) -
+              new Date(a.createdAt || a.created_at || a.updated_at || 0)
           );
         } else if (sort === "rating") {
-          fetchedGigs.sort((a, b) => b.rating - a.rating);
+          fetchedGigs.sort((a, b) => (b.rating || 0) - (a.rating || 0));
         } else if (sort === "priceAsc") {
           fetchedGigs.sort((a, b) => a.price - b.price);
         } else if (sort === "priceDesc") {

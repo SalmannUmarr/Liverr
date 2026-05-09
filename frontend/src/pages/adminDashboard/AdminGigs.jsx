@@ -214,7 +214,7 @@ const AdminGigs = () => {
         throw new Error("Failed to fetch gigs");
       }
       // Extract the gigs array from the response object
-      setGigs(response.data.gigs);
+      setGigs(response.data?.gigs || []);
       setError(null);
     } catch (err) {
       setError(err.message);
@@ -450,7 +450,11 @@ const AdminGigs = () => {
 
       {/* Gigs Grid Container with conditional rendering based on tab */}
       {!loading && !error && filteredGigs.length > 0 && (
-        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${activeTab === "pending" ? "2" : "4"} gap-6`}>
+        <div
+          className={`grid grid-cols-1 sm:grid-cols-2 gap-6 ${
+            activeTab === "pending" ? "lg:grid-cols-2" : "lg:grid-cols-4"
+          }`}
+        >
           {filteredGigs.map((gig) => (
             <div key={gig._id} className="relative">
               {activeTab === "pending" ? (
