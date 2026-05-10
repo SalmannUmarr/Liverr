@@ -10,6 +10,7 @@ import {
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { API_BASE_URL, apiUrl } from "../../utils/api";
 
 const Gigs = () => {
   const [sort, setSort] = useState("sales");
@@ -70,14 +71,14 @@ const Gigs = () => {
           if (filters.maxPrice) params.max = filters.maxPrice;
 
           response = await axios.get(
-            `https://liverbackend.vercel.app/api/auth/gigs/budget`,
+            `${API_BASE_URL}/gigs/budget`,
             { params }
           );
         }
         // Check if we're searching by text
         else if (filters.search) {
           response = await axios.get(
-            `https://liverbackend.vercel.app/api/auth/gigs/search/${filters.search}`
+            `${API_BASE_URL}/gigs/search/${filters.search}`
           );
         }
         // Check if we're filtering by tags
@@ -85,14 +86,14 @@ const Gigs = () => {
           // Create a query string with all selected tags joined by a space
           const tagQuery = filters.tags.join(" ");
           response = await axios.get(
-            `https://liverbackend.vercel.app/api/auth/gigs/search/${encodeURIComponent(
+            `${API_BASE_URL}/gigs/search/${encodeURIComponent(
               tagQuery
             )}`
           );
         }
         // Default fetch - just get all gigs
         else {
-          response = await axios.get("https://liverbackend.vercel.app/api/auth/gigs");
+          response = await axios.get(apiUrl("/gigs"));
         }
 
         let fetchedGigs =

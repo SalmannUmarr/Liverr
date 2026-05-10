@@ -600,6 +600,7 @@ import { useOutletContext } from "react-router-dom";
 import { Eye, Trash2, Star } from "lucide-react";
 import axios from "axios"; // Assuming axios is installed for API calls
 import { getAuthConfig } from "../../utils/authHeaders";
+import { API_BASE_URL, apiUrl } from "../../utils/api";
 
 const Users = () => {
   // Get activeView from the outlet context
@@ -632,7 +633,7 @@ const Users = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://liverbackend.vercel.app/api/auth/getUsers",
+          apiUrl("/getUsers"),
           getAuthConfig()
         );
         setUsersData(response.data.users || []);
@@ -815,7 +816,7 @@ const Users = () => {
   const confirmDelete = async () => {
     try {
       await axios.delete(
-        `https://liverbackend.vercel.app/api/auth/deleteUser/${selectedItem.id}`,
+        `${API_BASE_URL}/deleteUser/${selectedItem.id}`,
         getAuthConfig()
       );
       // Remove the deleted user from state
@@ -848,7 +849,7 @@ const Users = () => {
   const handleRoleChange = async (item, newRole) => {
     try {
       const response = await axios.put(
-        "https://liverbackend.vercel.app/api/auth/updateRole",
+        apiUrl("/updateRole"),
         { id: item.id, newRole },
         getAuthConfig()
       );
@@ -862,7 +863,7 @@ const Users = () => {
   const handleStatusToggle = async (item) => {
     try {
       const response = await axios.put(
-        "https://liverbackend.vercel.app/api/auth/updateStatus",
+        apiUrl("/updateStatus"),
         { id: item.id, isActive: !item.isActive },
         getAuthConfig()
       );

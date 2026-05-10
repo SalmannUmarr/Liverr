@@ -3,6 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import { Eye, Trash2 } from "lucide-react";
 import axios from "axios";
 import { getAuthConfig } from "../../utils/authHeaders";
+import { API_BASE_URL, apiUrl } from "../../utils/api";
 
 const ManageOrders = () => {
   // Get active view from outlet context
@@ -28,7 +29,7 @@ const ManageOrders = () => {
   const fetchOrders = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('https://liverbackend.vercel.app/api/auth/getorders', getAuthConfig());
+      const response = await axios.get(apiUrl("/getorders"), getAuthConfig());
       
       // Process data for both orders and transactions
       const allOrders = response.data.map(order => ({
@@ -84,7 +85,7 @@ const ManageOrders = () => {
     try {
       setLoading(true);
       console.log(selectedItem.id)
-       await axios.delete(`https://liverbackend.vercel.app/api/auth/orders/cancel/${selectedItem.id}`, getAuthConfig());
+       await axios.delete(`${API_BASE_URL}/orders/cancel/${selectedItem.id}`, getAuthConfig());
       
       // After successful cancellation, refresh the data
       await fetchOrders();

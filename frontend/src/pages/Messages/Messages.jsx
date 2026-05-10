@@ -72,6 +72,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { format } from "date-fns";
+import { API_BASE_URL, apiUrl } from "../../utils/api";
 
 const Messages = () => {
   const [messages, setMessages] = useState([]);
@@ -90,7 +91,7 @@ const Messages = () => {
     const fetchMessages = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("https://liverbackend.vercel.app/api/auth/messages/all");
+        const response = await axios.get(apiUrl("/messages/all"));
         console.log(response.data);
         if (response.data.success) {
           setMessages(response.data.messages);
@@ -141,7 +142,7 @@ const Messages = () => {
         : message.sender_id?._id;
       
       // Call the API
-      await axios.put(`https://liverbackend.vercel.app/api/auth/messages/read/${messageId}/${receiverId}`);
+      await axios.put(`${API_BASE_URL}/messages/read/${messageId}/${receiverId}`);
       
       // Update UI
       setMessages(messages.map(msg => 

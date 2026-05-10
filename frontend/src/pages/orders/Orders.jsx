@@ -15,6 +15,7 @@ import { faStar as farStar } from "@fortawesome/free-regular-svg-icons";
 import axios from "axios";
 import Message from "../Message/Message";
 import { getAuthConfig } from "../../utils/authHeaders";
+import { API_BASE_URL, apiUrl } from "../../utils/api";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -63,7 +64,7 @@ const Orders = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `https://liverbackend.vercel.app/api/auth/orders/${userId}`,
+        `${API_BASE_URL}/orders/${userId}`,
         getAuthConfig()
       );
       console.log(response.data);
@@ -103,7 +104,7 @@ const Orders = () => {
       }
 
       const response = await axios.put(
-        `https://liverbackend.vercel.app/api/auth/orders/complete/${submitOrderId}`,
+        `${API_BASE_URL}/orders/complete/${submitOrderId}`,
         formData,
         getAuthConfig({
           headers: {
@@ -133,7 +134,7 @@ const Orders = () => {
     setProcessingAction(orderId + "-cancel");
     try {
       const response = await axios.delete(
-        `https://liverbackend.vercel.app/api/auth/orders/cancel/${orderId}`,
+        `${API_BASE_URL}/orders/cancel/${orderId}`,
         getAuthConfig()
       );
 
@@ -178,7 +179,7 @@ const Orders = () => {
       };
 
       const response = await axios.post(
-        "https://liverbackend.vercel.app/api/auth/addReview",
+        apiUrl("/addReview"),
         reviewData
       );
 

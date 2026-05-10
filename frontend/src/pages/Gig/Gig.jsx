@@ -17,6 +17,7 @@ import {
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { getAuthConfig } from "../../utils/authHeaders";
+import { API_BASE_URL, apiUrl } from "../../utils/api";
 
 function Gig() {
   const { id } = useParams();
@@ -38,7 +39,7 @@ function Gig() {
       try {
         setLoading(true);
         const response = await fetch(
-          `https://liverbackend.vercel.app/api/auth/gig/${id}`
+          `${API_BASE_URL}/gig/${id}`
         );
 
         if (!response.ok) {
@@ -131,7 +132,7 @@ function Gig() {
         requirements: requirementText,
       };
 
-      const response = await fetch("https://liverbackend.vercel.app/api/auth/orders", {
+      const response = await fetch(apiUrl("/orders"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

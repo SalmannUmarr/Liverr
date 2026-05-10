@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getAuthConfig } from '../../utils/authHeaders';
+import { apiUrl } from "../../utils/api";
 import { 
   faUsers, 
   faDollarSign,
@@ -33,11 +34,11 @@ const AdminDashboard = () => {
         setIsLoading(true);
         
         // Fetch orders data using axios
-        const ordersResponse = await axios.get('https://liverbackend.vercel.app/api/auth/getorders', getAuthConfig());
+        const ordersResponse = await axios.get(apiUrl("/getorders"), getAuthConfig());
         const ordersData = ordersResponse.data;
         
         // Fetch users data using axios
-        const usersResponse = await axios.get('https://liverbackend.vercel.app/api/auth/getUsers', getAuthConfig());
+        const usersResponse = await axios.get(apiUrl("/getUsers"), getAuthConfig());
         // Handle the specific structure of users response
         const usersData = usersResponse.data.users || [];
         

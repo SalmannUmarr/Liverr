@@ -163,7 +163,7 @@
 //       // Make the API request with explicit configuration
 //       const response = await axios({
 //         method: 'post',
-//         url: 'https://liverbackend.vercel.app/api/auth/professional_info',
+//         url: apiUrl("/professional_info"),
 //         data: requestData,
 //         headers: {
 //           'Content-Type': 'application/json',
@@ -591,6 +591,7 @@ import "./VerificationPage.css";
 import { Plus } from "lucide-react";
 import axios from "axios";
 import { getAuthConfig } from "../../utils/authHeaders";
+import { API_BASE_URL, apiUrl } from "../../utils/api";
 
 const VerificationPage = () => {
   const [step, setStep] = useState(1);
@@ -634,7 +635,7 @@ const VerificationPage = () => {
 
       // Make the API request without authentication header
       const response = await axios.get(
-        `https://liverbackend.vercel.app/api/auth/getUser/${currentUser.id}`,
+        `${API_BASE_URL}/getUser/${currentUser.id}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -874,7 +875,7 @@ const VerificationPage = () => {
 
       // Make the API request with explicit configuration
       const response = await axios.post(
-        "https://liverbackend.vercel.app/api/auth/professional_info",
+        apiUrl("/professional_info"),
         requestData,
         getAuthConfig()
       );

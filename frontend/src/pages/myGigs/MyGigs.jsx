@@ -22,7 +22,7 @@
 
 //     try {
 //       setLoading(true);
-//       const response = await axios.get(`https://liverbackend.vercel.app/api/auth/gigs/freelancer/${currentUser.id}`);
+//       const response = await axios.get(`${API_BASE_URL}/gigs/freelancer/${currentUser.id}`);
       
 //       if (response.data && response.data.gigs) {
 //         setGigs(response.data.gigs);
@@ -46,7 +46,7 @@
 //       setDeleteLoading(true);
       
 //       // Call the delete API endpoint
-//       await axios.delete(`https://liverbackend.vercel.app/api/auth/gig/${gigId}`);
+//       await axios.delete(`${API_BASE_URL}/gig/${gigId}`);
       
 //       // If successful, update the state to remove the deleted gig
 //       setGigs(prevGigs => prevGigs.filter(gig => gig._id !== gigId));
@@ -224,6 +224,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL, apiUrl } from "../../utils/api";
 
 const MyGigs = () => {
   const [gigs, setGigs] = useState([]);
@@ -245,7 +246,7 @@ const MyGigs = () => {
 
     try {
       setLoading(true);
-      const response = await axios.get(`https://liverbackend.vercel.app/api/auth/gigs/freelancer/${currentUser.id}`);
+      const response = await axios.get(`${API_BASE_URL}/gigs/freelancer/${currentUser.id}`);
       
       if (response.data && response.data.gigs) {
         // Filter gigs where isApproved is true
@@ -271,7 +272,7 @@ const MyGigs = () => {
       setDeleteLoading(true);
       
       // Call the delete API endpoint
-      await axios.delete(`https://liverbackend.vercel.app/api/auth/gig/${gigId}`);
+      await axios.delete(`${API_BASE_URL}/gig/${gigId}`);
       
       // If successful, update the state to remove the deleted gig
       setGigs(prevGigs => prevGigs.filter(gig => gig._id !== gigId));

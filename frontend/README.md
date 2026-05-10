@@ -28,4 +28,24 @@ npm run preview
 npm run lint
 ```
 
-The frontend communicates with the Express API under `/api/auth` on the deployed backend URL currently used in the source files.
+The frontend communicates with the Express API through `VITE_API_BASE_URL`.
+
+## Environment
+
+Create `.env` from `.env.example` for local development:
+
+```bash
+cp .env.example .env
+```
+
+Set `VITE_API_BASE_URL` to the backend API base URL:
+
+```text
+VITE_API_BASE_URL=http://localhost:3000/api/auth
+```
+
+For Vercel, set `VITE_API_BASE_URL` to:
+
+```text
+https://your-backend.vercel.app/api/auth
+```

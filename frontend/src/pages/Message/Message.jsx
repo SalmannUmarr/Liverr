@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Send } from "lucide-react"; 
+import { API_BASE_URL, apiUrl } from "../../utils/api";
 
 const Message = ({id:propsId}) => {
   const { id: paramsId } = useParams();
@@ -21,7 +22,7 @@ const Message = ({id:propsId}) => {
       try {
         // Check if the ID is a valid gig ID first
         try {
-          const gigResponse = await axios.get(`https://liverbackend.vercel.app/api/auth/gig/${id}`);
+          const gigResponse = await axios.get(`${API_BASE_URL}/gig/${id}`);
           
           // Check if we got valid gig data
           if (gigResponse.data && gigResponse.data._id === id) {
@@ -37,7 +38,7 @@ const Message = ({id:propsId}) => {
         }
         
         // If not a gig ID, check if it's a message ID
-        const messagesResponse = await axios.get("https://liverbackend.vercel.app/api/auth/messages/all");
+        const messagesResponse = await axios.get(apiUrl("/messages/all"));
         
         if (messagesResponse.data.success && messagesResponse.data.messages) {
           // Find the message that matches the ID from params
@@ -94,7 +95,7 @@ const Message = ({id:propsId}) => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://liverbackend.vercel.app/api/auth/chat/${userId}/${receiverId}`
+          `${API_BASE_URL}/chat/${userId}/${receiverId}`
         );
         setMessages(response.data.chat || []);
 
@@ -116,7 +117,7 @@ const Message = ({id:propsId}) => {
         if (unreadMessages.length > 0) {
           try {
             // Use your updated API endpoint for marking messages as read
-            await axios.put(`https://liverbackend.vercel.app/api/auth/messages/read/${id}/${userId}`);
+            await axios.put(`${API_BASE_URL}/messages/read/${id}/${userId}`);
           } catch (error) {
             console.error("Error marking messages as read:", error);
           }
@@ -140,7 +141,7 @@ const Message = ({id:propsId}) => {
     if (!newMessage.trim() || !userId || !receiverId) return;
 
     try {
-      const response = await axios.post("https://liverbackend.vercel.app/api/auth/messages", {
+      const response = await axios.post(apiUrl("/messages"), {
         sender_id: userId,
         receiver_id: receiverId,
         content: newMessage,

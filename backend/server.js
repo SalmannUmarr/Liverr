@@ -19,12 +19,16 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const connectionString = process.env.MONGODB_URI || process.env.ConnectionString;
+const allowedOrigins = process.env.FRONTEND_URL
+  ? process.env.FRONTEND_URL.split(",").map((origin) => origin.trim())
+  : true;
 
 app.use(express.json());
 app.use(sanitizeRequestBody);
 app.use(
   cors({
-    origin: true,
+    origin: allowedOrigins,
     credentials: true,
   })
 );
@@ -41,13 +45,22 @@ app.use(myvar, Message);
 app.use(myvar, Review);
 app.use(myvar, userRoutes);
 const server = http.createServer(app);
-mongoose
-  .connect(process.env.ConnectionString)
-  .then(() => {
-    console.log("Connected to MongoDB");
-    server.listen(PORT,"0.0.0.0",()=>console.log(`Server is listening on port : ${PORT}`))
-  })
-  .catch((err) => console.error("MongoDB connection error:", err));
+
+if (!connectionString) {
+  console.error("MongoDB connection string is missing");
+} else {
+  mongoose
+    .connect(connectionString)
+    .then(() => {
+      console.log("Connected to MongoDB");
+      if (!process.env.VERCEL) {
+        server.listen(PORT, "0.0.0.0", () =>
+          console.log(`Server is listening on port : ${PORT}`)
+        );
+      }
+    })
+    .catch((err) => console.error("MongoDB connection error:", err));
+}
 
   app.get("/", (req, res) => {
     res.send("Backend server is running ✅");

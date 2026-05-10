@@ -5,6 +5,7 @@ import axios from 'axios';
 import Register from "../../pages/registeration/register";
 import { jwtDecode } from "jwt-decode";
 import { getAuthConfig } from "../../utils/authHeaders";
+import { API_BASE_URL, apiUrl } from "../../utils/api";
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -75,7 +76,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("https://liverbackend.vercel.app/api/auth/logout", {}, getAuthConfig());
+      await axios.post(apiUrl("/logout"), {}, getAuthConfig());
     } catch (error) {
       console.error("Logout request failed:", error);
     }
@@ -104,7 +105,7 @@ const Navbar = () => {
 
   const handleBecomeSeller = async () => {
     try {
-      const response = await axios.put("https://liverbackend.vercel.app/api/auth/becomeSeller", {}, getAuthConfig());
+      const response = await axios.put(apiUrl("/becomeSeller"), {}, getAuthConfig());
   
       const updatedUser = { ...currentUser, role: response.data.user.role, isSeller: true };
       localStorage.setItem("currentUser", JSON.stringify(updatedUser));

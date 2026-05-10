@@ -69,6 +69,49 @@ npm run dev
 - Backend health check: `http://localhost:3000/`
 - API base path: `/api/auth`
 
+## MongoDB Atlas and Vercel Deployment
+
+### MongoDB Atlas
+
+1. Create a MongoDB Atlas cluster.
+2. Create a database user and password.
+3. In Network Access, allow Vercel to connect. For coursework deployment, `0.0.0.0/0` is commonly used.
+4. Copy the Atlas connection string and replace the username, password, and database name.
+
+### Backend on Vercel
+
+Deploy the `backend/` folder as a Vercel project.
+
+Set these environment variables in the backend Vercel project:
+
+```text
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/database
+JWT_SECRET=your_secure_secret
+FRONTEND_URL=https://your-frontend.vercel.app
+```
+
+The backend also supports `ConnectionString` for local compatibility, but `MONGODB_URI` is recommended for deployment.
+
+### Frontend on Vercel
+
+Deploy the `frontend/` folder as a separate Vercel project.
+
+Use these settings:
+
+```text
+Framework Preset: Vite
+Build Command: npm run build
+Output Directory: dist
+```
+
+Set this environment variable in the frontend Vercel project:
+
+```text
+VITE_API_BASE_URL=https://your-backend.vercel.app/api/auth
+```
+
+After both deployments are live, update `FRONTEND_URL` in the backend Vercel project to match the final frontend URL.
+
 ## Submission Notes
 
 - Real environment secrets are not committed.

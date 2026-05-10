@@ -17,7 +17,7 @@
 //         setLoading(true);
 //         // Using axios with the correct endpoint; no query parameters for now
 //         const params = {};
-//         const response = await axios.get("https://liverbackend.vercel.app/api/auth/gigs", { params });
+//         const response = await axios.get(apiUrl("/gigs"), { params });
         
 //         if (response.status !== 200) {
 //           throw new Error("Failed to fetch gigs");
@@ -187,6 +187,7 @@ import { Search, Filter, Check, X, AlertCircle } from "lucide-react";
 import GigCard from "../../components/gigCard/GigCard";
 import axios from "axios";
 import { getAuthConfig } from "../../utils/authHeaders";
+import { API_BASE_URL, apiUrl } from "../../utils/api";
 
 const AdminGigs = () => {
   const [gigs, setGigs] = useState([]);
@@ -207,7 +208,7 @@ const AdminGigs = () => {
       setLoading(true);
       // Using axios with the correct endpoint; no query parameters for now
       const params = {};
-      const response = await axios.get("https://liverbackend.vercel.app/api/auth/gigs", { params });
+      const response = await axios.get(apiUrl("/gigs"), { params });
       
       if (response.status !== 200) {
         throw new Error("Failed to fetch gigs");
@@ -240,7 +241,7 @@ const AdminGigs = () => {
   const handleApproveGig = async (gigId) => {
     try {
       setProcessingGigId(gigId);
-      const response = await axios.put(`https://liverbackend.vercel.app/api/auth/gig/approve/${gigId}`, {}, getAuthConfig());
+      const response = await axios.put(`${API_BASE_URL}/gig/approve/${gigId}`, {}, getAuthConfig());
       
       if (response.status === 200) {
         // Update the gig status locally
@@ -261,7 +262,7 @@ const AdminGigs = () => {
     if (window.confirm("Are you sure you want to reject and delete this gig?")) {
       try {
         setProcessingGigId(gigId);
-        const response = await axios.delete(`https://liverbackend.vercel.app/api/auth/gig/${gigId}`);
+        const response = await axios.delete(`${API_BASE_URL}/gig/${gigId}`);
         
         if (response.status === 200) {
           // Remove the gig from the local state

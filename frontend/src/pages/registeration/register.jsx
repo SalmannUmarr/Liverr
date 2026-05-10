@@ -51,7 +51,7 @@
 //     if (!validateForm()) return;
   
 //     try {
-//       const apiUrl = `https://liverbackend.vercel.app/api/auth/${type}`;
+//       const apiUrl = `${API_BASE_URL}/${type}`;
 //       const response = await axios.post(apiUrl, user); 
   
 //       if (type === "login") {
@@ -254,6 +254,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./register.css"; 
+import { API_BASE_URL, apiUrl } from "../../utils/api";
 
 const Register = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -307,8 +308,8 @@ const Register = () => {
     if (!validateForm()) return;
 
     try {
-      const apiUrl = `https://liverbackend.vercel.app/api/auth/${type}`;
-      const response = await axios.post(apiUrl, user, { withCredentials: true }); 
+      const authUrl = `${API_BASE_URL}/${type}`;
+      const response = await axios.post(authUrl, user, { withCredentials: true }); 
   
       if (type === "login") {
         const currentUser = {
@@ -347,7 +348,7 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post("https://liverbackend.vercel.app/api/auth/forgot-password", {
+      const response = await axios.post(apiUrl("/forgot-password"), {
         email: user.email,
       });
       setResetToken(response.data.resetToken || "");
@@ -369,7 +370,7 @@ const Register = () => {
     }
 
     try {
-      await axios.post("https://liverbackend.vercel.app/api/auth/reset-password", {
+      await axios.post(apiUrl("/reset-password"), {
         token: resetToken,
         password: user.password,
       });
